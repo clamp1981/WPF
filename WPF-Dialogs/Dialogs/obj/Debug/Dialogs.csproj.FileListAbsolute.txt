@@ -1,0 +1,15 @@
+D:\Project\CSharp\Dialogs\Dialogs\bin\Debug\Dialogs.exe.config
+D:\Project\CSharp\Dialogs\Dialogs\bin\Debug\Dialogs.exe
+D:\Project\CSharp\Dialogs\Dialogs\bin\Debug\Dialogs.pdb
+D:\Project\CSharp\Dialogs\Dialogs\obj\Debug\Dialogs.csproj.AssemblyReference.cache
+D:\Project\CSharp\Dialogs\Dialogs\obj\Debug\OpenFileDemo.g.cs
+D:\Project\CSharp\Dialogs\Dialogs\obj\Debug\App.g.cs
+D:\Project\CSharp\Dialogs\Dialogs\obj\Debug\Dialogs_MarkupCompile.cache
+D:\Project\CSharp\Dialogs\Dialogs\obj\Debug\Dialogs_MarkupCompile.lref
+D:\Project\CSharp\Dialogs\Dialogs\obj\Debug\OpenFileDemo.baml
+D:\Project\CSharp\Dialogs\Dialogs\obj\Debug\Dialogs.g.resources
+D:\Project\CSharp\Dialogs\Dialogs\obj\Debug\Dialogs.Properties.Resources.resources
+D:\Project\CSharp\Dialogs\Dialogs\obj\Debug\Dialogs.csproj.GenerateResource.cache
+D:\Project\CSharp\Dialogs\Dialogs\obj\Debug\Dialogs.csproj.CoreCompileInputs.cache
+D:\Project\CSharp\Dialogs\Dialogs\obj\Debug\Dialogs.exe
+D:\Project\CSharp\Dialogs\Dialogs\obj\Debug\Dialogs.pdb

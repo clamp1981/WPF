@@ -1,0 +1,17 @@
+D:\Project\CSharp\DataBindingNoODP\DataBindingNoODP\bin\Debug\DataBindingNoODP.exe.config
+D:\Project\CSharp\DataBindingNoODP\DataBindingNoODP\bin\Debug\DataBindingNoODP.exe
+D:\Project\CSharp\DataBindingNoODP\DataBindingNoODP\bin\Debug\DataBindingNoODP.pdb
+D:\Project\CSharp\DataBindingNoODP\DataBindingNoODP\obj\Debug\MainWindow.g.cs
+D:\Project\CSharp\DataBindingNoODP\DataBindingNoODP\obj\Debug\App.g.cs
+D:\Project\CSharp\DataBindingNoODP\DataBindingNoODP\obj\Debug\DataBindingNoODP_MarkupCompile.cache
+D:\Project\CSharp\DataBindingNoODP\DataBindingNoODP\obj\Debug\DataBindingNoODP_MarkupCompile.lref
+D:\Project\CSharp\DataBindingNoODP\DataBindingNoODP\obj\Debug\MainWindow.baml
+D:\Project\CSharp\DataBindingNoODP\DataBindingNoODP\obj\Debug\DataBindingNoODP.g.resources
+D:\Project\CSharp\DataBindingNoODP\DataBindingNoODP\obj\Debug\DataBindingNoODP.Properties.Resources.resources
+D:\Project\CSharp\DataBindingNoODP\DataBindingNoODP\obj\Debug\DataBindingNoODP.csproj.GenerateResource.cache
+D:\Project\CSharp\DataBindingNoODP\DataBindingNoODP\obj\Debug\DataBindingNoODP.csproj.CoreCompileInputs.cache
+D:\Project\CSharp\DataBindingNoODP\DataBindingNoODP\obj\Debug\DataBindingNoODP.exe
+D:\Project\CSharp\DataBindingNoODP\DataBindingNoODP\obj\Debug\DataBindingNoODP.pdb
+D:\Project\CSharp\DataBindingNoODP\DataBindingNoODP\obj\Debug\DataBindingUseODP.g.cs
+D:\Project\CSharp\DataBindingNoODP\DataBindingNoODP\obj\Debug\DataBindingUseODP.baml
+D:\Project\CSharp\DataBindingNoODP\DataBindingNoODP\obj\Debug\GeneratedInternalTypeHelper.g.cs

@@ -1,0 +1,22 @@
+﻿<Window x:Class="MenuDemo.ContextMenuDemo"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MenuDemo"
+        mc:Ignorable="d"
+        Title="ContextMenuDemo" Height="400" Width="300" >
+    <Window.Resources>
+        <ContextMenu x:Key="cmRichTextBox" Focusable="False">
+            <MenuItem Header="Bold" IsCheckable="True"  Checked="MenuItem_Checked" Unchecked="MenuItem_Unchecked"  />
+            <MenuItem Header="Italic" IsCheckable="True" Unchecked="MenuItem_Unchecked" Checked="MenuItem_Checked" />
+        </ContextMenu>
+    </Window.Resources>
+    <StackPanel>
+        <RichTextBox x:Name="richTextBox" Height="300" MouseRightButtonUp="RichTextBox_MouseRightButtonUp" LostFocus="richTextBox_LostFocus">
+            
+        </RichTextBox>
+      
+        
+    </StackPanel>
+</Window>

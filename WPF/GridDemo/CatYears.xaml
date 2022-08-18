@@ -1,0 +1,25 @@
+﻿<Window x:Class="GridDemo.CatYears"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GridDemo"
+        mc:Ignorable="d"
+        Title="CatYears" Height="450" Width="800">
+    <Grid>
+        <Canvas>
+            <StackPanel Panel.ZIndex="1">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock FontSize="20">How old is your cat? (Years)</TextBlock>
+                    <TextBox x:Name="tbCatBirthYear" Width="100" Margin="5,0,0,0" BorderBrush="Blue" TextAlignment="Center" KeyUp="tbCatBirthYear_KeyUp"></TextBox>
+                </StackPanel>
+                <TextBlock x:Name="tblockCatAge" FontSize="20">Your Cat is 0 years old</TextBlock>
+                
+            </StackPanel>
+            <Image Panel.ZIndex="0" Source="Image/cat.jpg" Stretch="Fill" Height="419" Width="792"/>
+        </Canvas>
+        
+        
+        
+    </Grid>
+</Window>
