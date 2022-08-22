@@ -19,7 +19,6 @@ D:\Project\CSharp\NavigationDemo\NavigationDemo\obj\Debug\NavigationDemo.pdb
 D:\Project\CSharp\WPF\WPF\WPF-Navigation\NavigationDemo\bin\Debug\NavigationDemo.exe.config
 D:\Project\CSharp\WPF\WPF\WPF-Navigation\NavigationDemo\bin\Debug\NavigationDemo.exe
 D:\Project\CSharp\WPF\WPF\WPF-Navigation\NavigationDemo\bin\Debug\NavigationDemo.pdb
-D:\Project\CSharp\WPF\WPF\WPF-Navigation\NavigationDemo\obj\Debug\NavigationDemo.csproj.AssemblyReference.cache
 D:\Project\CSharp\WPF\WPF\WPF-Navigation\NavigationDemo\obj\Debug\MainWindow.g.cs
 D:\Project\CSharp\WPF\WPF\WPF-Navigation\NavigationDemo\obj\Debug\Pages\Page1.g.cs
 D:\Project\CSharp\WPF\WPF\WPF-Navigation\NavigationDemo\obj\Debug\Pages\Page2.g.cs
@@ -35,3 +34,9 @@ D:\Project\CSharp\WPF\WPF\WPF-Navigation\NavigationDemo\obj\Debug\NavigationDemo
 D:\Project\CSharp\WPF\WPF\WPF-Navigation\NavigationDemo\obj\Debug\NavigationDemo.csproj.CoreCompileInputs.cache
 D:\Project\CSharp\WPF\WPF\WPF-Navigation\NavigationDemo\obj\Debug\NavigationDemo.exe
 D:\Project\CSharp\WPF\WPF\WPF-Navigation\NavigationDemo\obj\Debug\NavigationDemo.pdb
+D:\Project\CSharp\WPF\WPF\WPF-Navigation\NavigationDemo\obj\Debug\DelegateAndEvent.g.cs
+D:\Project\CSharp\WPF\WPF\WPF-Navigation\NavigationDemo\obj\Debug\ValueUC.g.cs
+D:\Project\CSharp\WPF\WPF\WPF-Navigation\NavigationDemo\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\Project\CSharp\WPF\WPF\WPF-Navigation\NavigationDemo\obj\Debug\DelegateAndEvent.baml
+D:\Project\CSharp\WPF\WPF\WPF-Navigation\NavigationDemo\obj\Debug\ValueUC.baml
+D:\Project\CSharp\WPF\WPF\WPF-Navigation\NavigationDemo\obj\Debug\NavigationDemo.csproj.AssemblyReference.cache
