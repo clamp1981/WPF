@@ -22,12 +22,14 @@ namespace LinqDemo
     {
 
         private List<int> _basicList = null;
+        private List<int> _resultList = null;
         public MainWindow()
         {
             InitializeComponent();
             _basicList = new List<int>() { 2, 4, 5, 6, 1, 7, 8, 9 };
 
-            string list = ConvertListToString(_basicList);
+            SetResultList(_basicList);
+            string list = ConvertListToString(_resultList);
             this.NumberListLabel.Content = list;
             this.ResultNumberListLabel.Content = list;
         }
@@ -47,9 +49,17 @@ namespace LinqDemo
             return list;
         }
 
+        
+
+        private void SetResultList( List<int> numbers )
+        {
+            this._resultList = numbers;
+        }
+
         private void btnOddNumbers_Click(object sender, RoutedEventArgs e)
         {
-            this.ResultNumberListLabel.Content = ConvertListToString(_basicList.Where(x => (x % 2) != 0).ToList());
+            SetResultList(_basicList.Where(x => (x % 2) != 0).ToList());
+            this.ResultNumberListLabel.Content = ConvertListToString(_resultList);
         }
 
         private void btnBasicNumbers_Click(object sender, RoutedEventArgs e)
@@ -59,7 +69,14 @@ namespace LinqDemo
 
         private void btnEvenNumbers_Click(object sender, RoutedEventArgs e)
         {
-            this.ResultNumberListLabel.Content = ConvertListToString(_basicList.Where(x => (x % 2) == 0).ToList());
+            SetResultList(_basicList.Where(x => (x % 2) == 0).ToList());
+            this.ResultNumberListLabel.Content = ConvertListToString(_resultList);
+        }
+
+        private void btnSortNumbers_Click(object sender, RoutedEventArgs e)
+        {
+            SetResultList(_resultList.OrderBy(x => x).ToList());
+            this.ResultNumberListLabel.Content = ConvertListToString(_resultList);
         }
     }
 }

@@ -10,7 +10,8 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="1*"/>
-            <RowDefinition Height="8*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="7*"/>
         </Grid.RowDefinitions>
         <Label Grid.Row="0" x:Name="NumberListLabel"
                FontSize="20"/>
@@ -25,7 +26,12 @@
                     Width="100"
                     Click="btnEvenNumbers_Click">EvenNumbers</Button>
         </StackPanel>
-        <Label Grid.Row="2" x:Name="ResultNumberListLabel"
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button x:Name="btnSortNumbers" 
+                    Width="100" 
+                    Click="btnSortNumbers_Click">SortNumbers</Button>         
+        </StackPanel>
+        <Label Grid.Row="3" x:Name="ResultNumberListLabel"
                FontSize="20"/>
     </Grid>    
 </Window>
