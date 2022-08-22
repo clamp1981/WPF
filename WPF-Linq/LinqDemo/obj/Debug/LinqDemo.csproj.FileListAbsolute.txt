@@ -1,0 +1,14 @@
+D:\Project\CSharp\WPF\WPF\WPF-Linq\LinqDemo\bin\Debug\LinqDemo.exe.config
+D:\Project\CSharp\WPF\WPF\WPF-Linq\LinqDemo\bin\Debug\LinqDemo.exe
+D:\Project\CSharp\WPF\WPF\WPF-Linq\LinqDemo\bin\Debug\LinqDemo.pdb
+D:\Project\CSharp\WPF\WPF\WPF-Linq\LinqDemo\obj\Debug\MainWindow.g.cs
+D:\Project\CSharp\WPF\WPF\WPF-Linq\LinqDemo\obj\Debug\App.g.cs
+D:\Project\CSharp\WPF\WPF\WPF-Linq\LinqDemo\obj\Debug\LinqDemo_MarkupCompile.cache
+D:\Project\CSharp\WPF\WPF\WPF-Linq\LinqDemo\obj\Debug\LinqDemo_MarkupCompile.lref
+D:\Project\CSharp\WPF\WPF\WPF-Linq\LinqDemo\obj\Debug\MainWindow.baml
+D:\Project\CSharp\WPF\WPF\WPF-Linq\LinqDemo\obj\Debug\LinqDemo.g.resources
+D:\Project\CSharp\WPF\WPF\WPF-Linq\LinqDemo\obj\Debug\LinqDemo.Properties.Resources.resources
+D:\Project\CSharp\WPF\WPF\WPF-Linq\LinqDemo\obj\Debug\LinqDemo.csproj.GenerateResource.cache
+D:\Project\CSharp\WPF\WPF\WPF-Linq\LinqDemo\obj\Debug\LinqDemo.csproj.CoreCompileInputs.cache
+D:\Project\CSharp\WPF\WPF\WPF-Linq\LinqDemo\obj\Debug\LinqDemo.exe
+D:\Project\CSharp\WPF\WPF\WPF-Linq\LinqDemo\obj\Debug\LinqDemo.pdb

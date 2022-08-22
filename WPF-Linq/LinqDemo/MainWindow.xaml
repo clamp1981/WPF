@@ -1,0 +1,31 @@
+﻿<Window x:Class="LinqDemo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LinqDemo"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="400">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="8*"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" x:Name="NumberListLabel"
+               FontSize="20"/>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button x:Name="btnOddNumbers" 
+                    Width="100" 
+                    Click="btnOddNumbers_Click">OddNumbers</Button>
+            <Button x:Name="btnBasicNumbers" 
+                    Width="100"
+                    Click="btnBasicNumbers_Click">BasicNumbers</Button>
+            <Button x:Name="btnEvenNumbers" 
+                    Width="100"
+                    Click="btnEvenNumbers_Click">EvenNumbers</Button>
+        </StackPanel>
+        <Label Grid.Row="2" x:Name="ResultNumberListLabel"
+               FontSize="20"/>
+    </Grid>    
+</Window>
