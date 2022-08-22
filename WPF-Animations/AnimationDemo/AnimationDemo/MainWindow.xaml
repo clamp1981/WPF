@@ -35,6 +35,16 @@
             <Label Grid.Row="0" x:Name="LoadEventLabel" FontSize="40" >Hello Animation Loaded Event</Label>
             <Label Grid.Row="1" x:Name="MouseEventLabel" FontSize="40" >Hello Animation Mouse Enter</Label>
         </Grid>
+        <Grid x:Name="GridForCode" 
+              Loaded="GridForCode_Loaded"
+              MouseEnter="GridForCode_MouseEnter">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="100"/>
+            </Grid.RowDefinitions>
+            <Label x:Name="LoadedEventLabelUseInCode" Grid.Row="0" FontSize="40">Hello Animation in Code ( Loaded Event )</Label>
+            <Label x:Name="MouseEventLabelUseInCode" Grid.Row="1" FontSize="40">Hello Animation in Code ( Mouse Enter Event )</Label>
+        </Grid>
     </StackPanel>
 
 </Window>
