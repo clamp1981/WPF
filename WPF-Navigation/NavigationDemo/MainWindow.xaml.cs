@@ -39,5 +39,17 @@ namespace NavigationDemo
         {
             MainWindowFrame.Content = SecondPage;
         }
+
+        private void btnGoBack_Click(object sender, RoutedEventArgs e)
+        {
+            if (MainWindowFrame.NavigationService.CanGoBack)
+                MainWindowFrame.NavigationService.GoBack();
+        }
+
+        private void btnGoForward_Click(object sender, RoutedEventArgs e)
+        {
+            if (MainWindowFrame.NavigationService.CanGoForward)
+                MainWindowFrame.NavigationService.GoForward();
+        }
     }
 }

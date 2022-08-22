@@ -12,8 +12,10 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button x:Name="btnGoBack" Width="70" Margin="1,5,1,5" Click="btnGoBack_Click"  >◀</Button>           
             <Button x:Name="btnPage1" Width="100" Margin="5" Click="btnPage1_Click" >Page 1</Button>
             <Button x:Name="btnPage2" Width="100" Margin="5" Click="btnPage2_Click" >Page 2</Button>
+            <Button x:Name="btnGoForward" Width="70" Margin="1,5,1,5" Click="btnGoForward_Click"  >▶</Button>
         </StackPanel>
         <Frame Grid.Row="1" x:Name="MainWindowFrame"
                NavigationUIVisibility="Hidden">
