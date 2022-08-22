@@ -6,7 +6,35 @@
         xmlns:local="clr-namespace:AnimationDemo"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+    <StackPanel>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="100"/>
+            </Grid.RowDefinitions>
+            <Grid.Triggers>
+                <EventTrigger RoutedEvent="Loaded">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation From="0" To="1" Duration="0:0:10"
+                                            Storyboard.TargetProperty="Opacity"
+                                              Storyboard.TargetName="LoadEventLabel"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+                <EventTrigger RoutedEvent="MouseEnter">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation From="0" To="1" Duration="0:0:10"
+                                         Storyboard.TargetProperty="Opacity"
+                                             Storyboard.TargetName="MouseEventLabel"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Grid.Triggers>
+            <Label Grid.Row="0" x:Name="LoadEventLabel" FontSize="40" >Hello Animation Loaded Event</Label>
+            <Label Grid.Row="1" x:Name="MouseEventLabel" FontSize="40" >Hello Animation Mouse Enter</Label>
+        </Grid>
+    </StackPanel>
+
 </Window>
