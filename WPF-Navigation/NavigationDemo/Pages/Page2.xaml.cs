@@ -20,9 +20,20 @@ namespace NavigationDemo.Pages
     /// </summary>
     public partial class Page2 : Page
     {
+
+        public event EventHandler<RoutedEventArgs> Page1Moved;
+        public virtual void OnPage1Moved(RoutedEventArgs e)
+        {
+            Page1Moved?.Invoke(this, e);
+        }
         public Page2()
         {
             InitializeComponent();
+        }
+
+        private void btnGoToPage1_Click(object sender, RoutedEventArgs e)
+        {
+            OnPage1Moved(e);
         }
     }
 }

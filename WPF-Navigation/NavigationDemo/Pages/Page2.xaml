@@ -8,8 +8,12 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Page2">
 
-    <Grid>
+    <StackPanel>
         <Label>This is page 2</Label>
-    
-    </Grid>
+        <Button x:Name="btnGoToPage1" 
+                Height="40" Margin="10,5,10,1" Click="btnGoToPage1_Click">
+            Go to page 1
+        </Button>
+
+    </StackPanel>
 </Page>

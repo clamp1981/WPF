@@ -29,7 +29,14 @@ namespace NavigationDemo
             InitializeComponent();
             FirstPage = new Page1();
             SecondPage = new Page2();
-        }      
+            SecondPage.Page1Moved += SecondPage_Page1Moved;
+        }
+
+        private void SecondPage_Page1Moved(object sender, RoutedEventArgs e)
+        {
+            MainWindowFrame.Content = FirstPage;
+        }
+
         private void btnPage1_Click(object sender, RoutedEventArgs e)
         {
             MainWindowFrame.Content = FirstPage;
