@@ -1,0 +1,15 @@
+D:\Project\CSharp\WPF\WPF\WPF-Animations\AnimationDemo\AnimationDemo\bin\Debug\AnimationDemo.exe.config
+D:\Project\CSharp\WPF\WPF\WPF-Animations\AnimationDemo\AnimationDemo\bin\Debug\AnimationDemo.exe
+D:\Project\CSharp\WPF\WPF\WPF-Animations\AnimationDemo\AnimationDemo\bin\Debug\AnimationDemo.pdb
+D:\Project\CSharp\WPF\WPF\WPF-Animations\AnimationDemo\AnimationDemo\obj\Debug\AnimationDemo.csproj.AssemblyReference.cache
+D:\Project\CSharp\WPF\WPF\WPF-Animations\AnimationDemo\AnimationDemo\obj\Debug\MainWindow.g.cs
+D:\Project\CSharp\WPF\WPF\WPF-Animations\AnimationDemo\AnimationDemo\obj\Debug\App.g.cs
+D:\Project\CSharp\WPF\WPF\WPF-Animations\AnimationDemo\AnimationDemo\obj\Debug\AnimationDemo_MarkupCompile.cache
+D:\Project\CSharp\WPF\WPF\WPF-Animations\AnimationDemo\AnimationDemo\obj\Debug\AnimationDemo_MarkupCompile.lref
+D:\Project\CSharp\WPF\WPF\WPF-Animations\AnimationDemo\AnimationDemo\obj\Debug\MainWindow.baml
+D:\Project\CSharp\WPF\WPF\WPF-Animations\AnimationDemo\AnimationDemo\obj\Debug\AnimationDemo.g.resources
+D:\Project\CSharp\WPF\WPF\WPF-Animations\AnimationDemo\AnimationDemo\obj\Debug\AnimationDemo.Properties.Resources.resources
+D:\Project\CSharp\WPF\WPF\WPF-Animations\AnimationDemo\AnimationDemo\obj\Debug\AnimationDemo.csproj.GenerateResource.cache
+D:\Project\CSharp\WPF\WPF\WPF-Animations\AnimationDemo\AnimationDemo\obj\Debug\AnimationDemo.csproj.CoreCompileInputs.cache
+D:\Project\CSharp\WPF\WPF\WPF-Animations\AnimationDemo\AnimationDemo\obj\Debug\AnimationDemo.exe
+D:\Project\CSharp\WPF\WPF\WPF-Animations\AnimationDemo\AnimationDemo\obj\Debug\AnimationDemo.pdb
