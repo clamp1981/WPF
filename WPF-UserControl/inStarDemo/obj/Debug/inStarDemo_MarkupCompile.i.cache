@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\Project\CSharp\WPF\WPF\WPF-UserControl\inStarDemo\App.xaml
-2-1981579841
-
-71125321031
+5-1116807214
+11577040693
+131593383765
 131254293103
-MainWindow.xaml;PostOperationsUC.xaml;
+MainWindow.xaml;UserControls\PicturePostUC.xaml;UserControls\PostLikeByUC.xaml;UserControls\PostOperationsUC.xaml;UserControls\VideoPostUC.xaml;
 
-True
+False
 

@@ -4,12 +4,13 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:inStaDemo"
+        xmlns:uc="clr-namespace:inStaDemo.UserControls"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="500">
-    <Grid>
-        <StackPanel Orientation="Vertical">
-            <local:PostOperationsUC Height="40"/>
-        </StackPanel>
-        
-    </Grid>
+        Title="MainWindow" Height="600" Width="500">
+    <ScrollViewer x:Name="MainScrollViewer"
+        VerticalScrollBarVisibility="Hidden"
+                  ScrollChanged="ScrollViewer_ScrollChanged">
+        <StackPanel x:Name="MainStackPanel"/>
+    </ScrollViewer>
+   
 </Window>

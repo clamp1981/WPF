@@ -55,6 +55,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DataBase\MockDB.cs" />
+    <Compile Include="Models\PicturePostModel.cs" />
+    <Compile Include="Models\VideoPostModel.cs" />
+    <Compile Include="UserControls\VideoPostUC.xaml.cs">
+      <DependentUpon>VideoPostUC.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -67,13 +73,31 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="PostOperationsUC.xaml">
+    <Page Include="UserControls\PicturePostUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\PostLikeByUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\PostOperationsUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\VideoPostUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PostOperationsUC.xaml.cs">
+    <Compile Include="UserControls\PicturePostUC.xaml.cs">
+      <DependentUpon>PicturePostUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\PostLikeByUC.xaml.cs">
+      <DependentUpon>PostLikeByUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\PostOperationsUC.xaml.cs">
       <DependentUpon>PostOperationsUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -101,13 +125,23 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="PostSample\cat1.jpg" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="icons\bookmark.png" />
     <Resource Include="icons\comment.png" />
     <Resource Include="icons\like.png" />
     <Resource Include="icons\liked.png" />
     <Resource Include="icons\send.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="PostSample\sample.mp4" />
+    <Resource Include="PostSample\사회.jpg" />
+    <Resource Include="PostSample\수학.jpg" />
+    <Resource Include="PostSample\실관.jpg" />
+    <Resource Include="PostSample\영어.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

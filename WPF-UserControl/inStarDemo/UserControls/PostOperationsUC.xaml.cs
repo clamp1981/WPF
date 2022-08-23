@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace inStaDemo
+namespace inStaDemo.UserControls
 {
     /// <summary>
     /// Interaction logic for PostOperationsUC.xaml
@@ -28,6 +28,11 @@ namespace inStaDemo
         }
 
         private void imageLike_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            TogglePostLiked();
+        }
+
+        public void TogglePostLiked()
         {
             string uri = Environment.CurrentDirectory + @"\..\..\icons\";
             uri += PostLiked ? "like.png" : "liked.png";

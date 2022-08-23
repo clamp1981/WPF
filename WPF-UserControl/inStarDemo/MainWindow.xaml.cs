@@ -1,4 +1,6 @@
-﻿using System;
+﻿using inStaDemo.UserControls;
+using inStarDemo.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +25,22 @@ namespace inStaDemo
         public MainWindow()
         {
             InitializeComponent();
+            MainStackPanel.Children.Add(new VideoPostUC(new VideoPostModel()));
+            MainStackPanel.Children.Add(new PicturePostUC(new PicturePostModel()));
+            //MainStackPanel.Children.Add(new VideoPostUC(new VideoPostModel()));
+            //MainStackPanel.Children.Add(new VideoPostUC(new VideoPostModel()));
+        }
+
+        private void ScrollViewer_ScrollChanged(object sender, ScrollChangedEventArgs e)
+        {
+            if( e.VerticalChange > 0 )
+            {
+                int adjustment = 400;
+                if( e.VerticalOffset + e.ViewportHeight + adjustment >= e.ExtentHeight )
+                {
+                    MainStackPanel.Children.Add(new PicturePostUC(new PicturePostModel()));
+                }
+            }
         }
     }
 }
