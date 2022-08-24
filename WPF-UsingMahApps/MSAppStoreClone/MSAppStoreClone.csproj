@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F104A2C4-94F4-433B-B670-6CA93DBEC9EB}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>MSAppStoreClone</RootNamespace>
+    <AssemblyName>MSAppStoreClone</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MiscUtil, Version=0.2.0.0, Culture=neutral, PublicKeyToken=d3c42c4bfacf7596, processorArchitecture=MSIL">
+      <HintPath>..\packages\JonSkeet.MiscUtil.0.2.0\lib\net35\MiscUtil.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\001-mail inbox app.png" />
+    <Resource Include="Images\002-speech bubble.png" />
+    <Resource Include="Images\003-telephone.png" />
+    <Resource Include="Images\004-camera.png" />
+    <Resource Include="Images\005-image.png" />
+    <Resource Include="Images\006-weather app.png" />
+    <Resource Include="Images\007-clock.png" />
+    <Resource Include="Images\008-maps.png" />
+    <Resource Include="Images\009-tv app.png" />
+    <Resource Include="Images\010-notes.png" />
+    <Resource Include="Images\011-house.png" />
+    <Resource Include="Images\012-daily health app.png" />
+    <Resource Include="Images\013-news.png" />
+    <Resource Include="Images\014-music.png" />
+    <Resource Include="Images\015-folder.png" />
+    <Resource Include="Images\016-stock exchange app.png" />
+    <Resource Include="Images\017-web browser.png" />
+    <Resource Include="Images\018-calendar.png" />
+    <Resource Include="Images\019-reminders.png" />
+    <Resource Include="Images\020-video calling app.png" />
+    <Resource Include="Images\021-podcast.png" />
+    <Resource Include="Images\022-wallet passes app.png" />
+    <Resource Include="Images\023-app store.png" />
+    <Resource Include="Images\024-books.png" />
+    <Resource Include="Images\025-settings.png" />
+    <Resource Include="Images\026-tips.png" />
+    <Resource Include="Images\027-remote control.png" />
+    <Resource Include="Images\028-voice message app.png" />
+    <Resource Include="Images\029-find my gadget app.png" />
+    <Resource Include="Images\030-shortcut script app.png" />
+    <Resource Include="Images\031-translate.png" />
+    <Resource Include="Images\032-smartwatch app.png" />
+    <Resource Include="Images\033-calculator.png" />
+    <Resource Include="Images\034-music store app.png" />
+    <Resource Include="Images\035-contacts.png" />
+    <Resource Include="Images\036-browser.png" />
+    <Resource Include="Images\037-bank.png" />
+    <Resource Include="Images\038-like.png" />
+    <Resource Include="Images\039-twitter.png" />
+    <Resource Include="Images\040-youtube.png" />
+    <Resource Include="Images\041-whatsapp.png" />
+    <Resource Include="Images\042-transport.png" />
+    <Resource Include="Images\043-streaming tv app.png" />
+    <Resource Include="Images\044-search.png" />
+    <Resource Include="Images\045-instagram.png" />
+    <Resource Include="Images\046-shopping.png" />
+    <Resource Include="Images\047-pin.png" />
+    <Resource Include="Images\048-tiktok.png" />
+    <Resource Include="Images\049-messenger.png" />
+    <Resource Include="Images\050-edition.png" />
+    <Resource Include="Images\051-drive.png" />
+    <Resource Include="Images\052-snapchat.png" />
+    <Resource Include="Images\053-reddit.png" />
+    <Resource Include="Images\054-twitch.png" />
+    <Resource Include="Images\055-spotify.png" />
+    <Resource Include="Images\056-video editing app.png" />
+    <Resource Include="Images\057-music maker app.png" />
+    <Resource Include="Images\058-tinder.png" />
+    <Resource Include="Images\059-slack.png" />
+    <Resource Include="Images\060-telegram.png" />
+    <Resource Include="Images\061-discord.png" />
+    <Resource Include="Images\062-tumblr.png" />
+    <Resource Include="Images\063-slide show app.png" />
+    <Resource Include="Images\064-movies app.png" />
+    <Resource Include="Images\065-pages.png" />
+    <Resource Include="Images\066-spreadsheet app.png" />
+    <Resource Include="Images\067-mortarboard.png" />
+    <Resource Include="Images\068-waze.png" />
+    <Resource Include="Images\069-linkedin.png" />
+    <Resource Include="Images\070-file hosting.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
