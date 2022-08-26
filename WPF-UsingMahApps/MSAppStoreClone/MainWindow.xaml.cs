@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MSAppStoreClone.Pages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,15 @@ namespace MSAppStoreClone
     /// </summary>
     public partial class MainWindow : Window
     {
+        HomePage MainHomePage { get; set; }
         public MainWindow()
         {
             InitializeComponent();
+
+            MainHomePage = new HomePage();
+            MainHomeFrame.Content = MainHomePage;
+
+
         }
     }
 }

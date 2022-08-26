@@ -24,13 +24,16 @@ namespace MSAppStoreClone.Pages
     {
 
         TopAppsUC TopApps = new TopAppsUC();
-        AppsUC BestEnterApss = null; 
+        AppsUC BestEnterApps = null;
+        AppsUC UtilityApps = null;
         public HomePage()
         {
             InitializeComponent();
             MainStackPanel.Children.Add(TopApps);
-            BestEnterApss = new AppsUC("Best Entertainment apps");
-            MainStackPanel.Children.Add(BestEnterApss);
+            BestEnterApps = new AppsUC("Best Entertainment apps");
+            UtilityApps = new AppsUC("Utility apps", true);
+            MainStackPanel.Children.Add(BestEnterApps);
+            MainStackPanel.Children.Add(UtilityApps);
 
         }
     }

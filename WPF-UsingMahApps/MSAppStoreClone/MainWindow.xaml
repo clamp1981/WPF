@@ -4,9 +4,17 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MSAppStoreClone"
+        xmlns:page="clr-namespace:MSAppStoreClone.Pages"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <TabControl Margin="5">
+            <TabItem Header="Home" x:Name="HomeTab">
+                <Frame x:Name="MainHomeFrame">
+                   
+                </Frame>
+            </TabItem>            
+        </TabControl>
         
     </Grid>
 </Window>
