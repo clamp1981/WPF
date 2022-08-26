@@ -8,7 +8,7 @@
              Height="300"
              Width="150">
     
-    <Border x:Name="MainBorder" Margin="5" CornerRadius="10" Background="White"  >
+    <Border x:Name="MainBorder" Margin="5" CornerRadius="2" Background="White" BorderBrush="LightGray" BorderThickness="1" >
         <Border.Effect>
             <DropShadowEffect
                               Direction="315"
@@ -73,7 +73,7 @@
                        />
             </Grid>
 
-            <Grid Grid.Column="1" Grid.Row="9" Grid.ColumnSpan="3"
+            <Grid Grid.Column="1" Grid.Row="9" Grid.ColumnSpan="3"                 
               VerticalAlignment="Center">
                 <TextBlock x:Name="ProductPrice"
                        FontSize="16"

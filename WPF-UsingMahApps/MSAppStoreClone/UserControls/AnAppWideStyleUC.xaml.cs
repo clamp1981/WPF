@@ -1,7 +1,5 @@
-﻿using MSAppStoreClone.UserControls;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,23 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MSAppStoreClone.Pages
+namespace MSAppStoreClone.UserControls
 {
     /// <summary>
-    /// Interaction logic for HomePage.xaml
+    /// Interaction logic for AnAppWideStyleUC.xaml
     /// </summary>
-    public partial class HomePage : Page
+    public partial class AnAppWideStyleUC : UserControl
     {
-
-        TopAppsUC TopApps = new TopAppsUC();
-        AppsUC BestEnterApss = null; 
-        public HomePage()
+        public AnAppWideStyleUC()
         {
             InitializeComponent();
-            MainStackPanel.Children.Add(TopApps);
-            BestEnterApss = new AppsUC("Best Entertainment apps");
-            MainStackPanel.Children.Add(BestEnterApss);
-
         }
     }
 }
