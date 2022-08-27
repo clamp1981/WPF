@@ -33,7 +33,7 @@
                 
             </Grid>
             <Grid Grid.Row="1" Margin="5">
-                <StackPanel x:Name="MainStackPanel" Orientation="{Binding MainStackPanelOrientation}"/>
+                <StackPanel x:Name="MainStackPanel" Width="{Binding MainPanelWidth}" Orientation="{Binding MainStackPanelOrientation}"/>
             </Grid>
 
         </Grid>

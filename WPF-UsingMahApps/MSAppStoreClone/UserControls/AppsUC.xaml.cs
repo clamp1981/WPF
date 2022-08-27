@@ -25,7 +25,7 @@ namespace MSAppStoreClone.UserControls
 
         List<string> Files = Directory.GetFiles(Environment.CurrentDirectory + @"..\..\..\Images", "*.png", SearchOption.TopDirectoryOnly).ToList();
         bool IsAppUCWide = false;
-        int Appwidth = 150;
+
         public string Title
         {
             get { return (string )GetValue(TitleProperty); }
@@ -50,7 +50,19 @@ namespace MSAppStoreClone.UserControls
 
 
 
-        
+
+        public double MainPanelWidth
+        {
+            get { return (double)GetValue(MainPanelWidthProperty); }
+            set { SetValue(MainPanelWidthProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for MainPanelWidth.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty MainPanelWidthProperty =
+            DependencyProperty.Register("MainPanelWidth", typeof(double), typeof(AppsUC), new PropertyMetadata(default(double)));
+
+
+
 
 
         public AppsUC( string title , bool isWide = false)
@@ -69,8 +81,10 @@ namespace MSAppStoreClone.UserControls
 
         private void UserControl_SizeChanged(object sender, SizeChangedEventArgs e)
         {
+            this.MainPanelWidth = this.ActualWidth;
             if (this.IsAppUCWide == false)
             {
+                
                 int count = Convert.ToInt32(Math.Truncate(this.ActualWidth / 150));
                 Debug.WriteLine($"UserControl_SizeChanged MainStackPanel width : {this.MainStackPanel.ActualWidth}, width : {this.ActualWidth}, count : {count}");
                 if (count == this.MainStackPanel.Children.Count)
@@ -81,7 +95,7 @@ namespace MSAppStoreClone.UserControls
                     int addcount = count + this.MainStackPanel.Children.Count;
                     for (int i = this.MainStackPanel.Children.Count; i < addcount; i++)
                     {
-                        AnAppUC app = new AnAppUC();
+                        AnAppUC app = new AnAppUC();                       
                         app.ProductImage.Source = new BitmapImage(new Uri(Files[i]));
                         try
                         {
@@ -104,14 +118,14 @@ namespace MSAppStoreClone.UserControls
                     }
                 }
             }
-            else
-            {
-                foreach (var item in this.MainStackPanel.Children)
-                {
-                    AnAppWideStyleUC app = item as AnAppWideStyleUC;
-                    app.Width = this.ActualWidth;
-                }
-            }
+            //else
+            //{
+            //    foreach (var item in this.MainStackPanel.Children)
+            //    {
+            //        AnAppWideStyleUC app = item as AnAppWideStyleUC;
+            //        app.Width = this.ActualWidth;
+            //    }
+            //}
             
 
         }
