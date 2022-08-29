@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MSAppStoreClone.DataBase;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -25,6 +26,9 @@ namespace MSAppStoreClone.UserControls
 
         List<string> Files = Directory.GetFiles(Environment.CurrentDirectory + @"..\..\..\Images", "*.png", SearchOption.TopDirectoryOnly).ToList();
         bool IsAppUCWide = false;
+        MockDB MockDataBase = new MockDB();
+
+        List<AppModel> Apps;
 
         public string Title
         {
@@ -65,12 +69,13 @@ namespace MSAppStoreClone.UserControls
 
 
 
-        public AppsUC( string title , bool isWide = false)
+        public AppsUC( string title , AppsMainType type,  bool isWide = false)
         {
             InitializeComponent();
             
             this.Title = title;
             this.DataContext = this;
+            this.Apps = MockDataBase.GetAppModels(type);
             this.IsAppUCWide = isWide;
             if (isWide)
                 this.MainStackPanelOrientation = Orientation.Vertical;
@@ -95,11 +100,15 @@ namespace MSAppStoreClone.UserControls
                     int addcount = count + this.MainStackPanel.Children.Count;
                     for (int i = this.MainStackPanel.Children.Count; i < addcount; i++)
                     {
+                        if (i >= Apps.Count)
+                            return;
+
                         AnAppUC app = new AnAppUC();                       
-                        app.ProductImage.Source = new BitmapImage(new Uri(Files[i]));
+                        app.ProductImage.Source = new BitmapImage(new Uri(Apps[i].ImagPath));
                         try
                         {
-                            app.ProductName.Text = System.IO.Path.GetFileNameWithoutExtension(Files[i]).Split('-')[1];
+                            app.ProductName.Text = Apps[i].AppName;
+                            app.ProductPrice.Text = Apps[i].Price == 0.0 ? "Free" : Apps[i].Price.ToString();
                         }
                         catch (Exception ex)
                         {

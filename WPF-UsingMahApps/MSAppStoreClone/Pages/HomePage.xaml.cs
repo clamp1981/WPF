@@ -26,14 +26,17 @@ namespace MSAppStoreClone.Pages
         TopAppsUC TopApps = new TopAppsUC();
         AppsUC BestEnterApps = null;
         AppsUC UtilityApps = null;
+        AppsUC GameApps = null;
         public HomePage()
         {
             InitializeComponent();
             MainStackPanel.Children.Add(TopApps);
-            BestEnterApps = new AppsUC("Best Entertainment apps");
-            UtilityApps = new AppsUC("Utility apps", true);
+            BestEnterApps = new AppsUC("Best Entertainment apps", DataBase.AppsMainType.EntertainmentApp );
+            UtilityApps = new AppsUC("Utility apps", DataBase.AppsMainType.UtilityApp, true);
+            GameApps = new AppsUC("Best Game apps", DataBase.AppsMainType.GameApp);
             MainStackPanel.Children.Add(BestEnterApps);
             MainStackPanel.Children.Add(UtilityApps);
+            MainStackPanel.Children.Add(GameApps);
 
         }
     }
