@@ -58,6 +58,28 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Common\MenuTypes.cs" />
+    <Compile Include="Pages\AppsPage.xaml.cs">
+      <DependentUpon>AppsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\HomePage.xaml.cs">
+      <DependentUpon>HomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\AnAppUC.xaml.cs">
+      <DependentUpon>AnAppUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\AnAppWideStyleUC.xaml.cs">
+      <DependentUpon>AnAppWideStyleUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\AppsUC.xaml.cs">
+      <DependentUpon>AppsUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\MenuUC.xaml.cs">
+      <DependentUpon>MenuUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\TopAppsUC.xaml.cs">
+      <DependentUpon>TopAppsUC.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -70,6 +92,34 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\AppsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\HomePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\AnAppUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\AnAppWideStyleUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\AppsUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\MenuUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\TopAppsUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -98,7 +148,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Resource Include="Images\001-mail inbox app.png" />
     <Resource Include="Images\002-speech bubble.png" />
@@ -170,6 +219,27 @@
     <Resource Include="Images\068-waze.png" />
     <Resource Include="Images\069-linkedin.png" />
     <Resource Include="Images\070-file hosting.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Menu\home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Menu\Apps.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Menu\game.png" />
+    <Resource Include="Images\Menu\Help.png" />
+    <Resource Include="Images\Menu\library.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="UserControls\Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Home\81-tropical.png" />
+    <Resource Include="Images\Home\82-circus fun.png" />
+    <Resource Include="Images\Home\83-Race extreme.png" />
+    <Resource Include="Images\Home\84-chat message.png" />
+    <Resource Include="Images\Home\85-Night castle.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
