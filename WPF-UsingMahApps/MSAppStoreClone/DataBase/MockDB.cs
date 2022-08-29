@@ -25,12 +25,21 @@ namespace MSAppStoreClone.DataBase
         public double Price { get; private set; }
         public string AppName { get; private set; }
 
+        public string AppTypeName { get; private set; }
+
         public AppModel( string imagPath, AppsMainType type, double price )
         {
             this.ImagPath = imagPath;
             this.AppMainType = type;
             this.AppName = System.IO.Path.GetFileNameWithoutExtension(imagPath).Split('-')[1];
             this.Price = price;
+
+            if (this.AppMainType == AppsMainType.GameApp)
+                this.AppTypeName = "Game";
+            else if (this.AppMainType == AppsMainType.EntertainmentApp)
+                this.AppTypeName = "Entertainment";
+            else
+                this.AppTypeName = "Utility";
         }
     }
 
@@ -38,41 +47,31 @@ namespace MSAppStoreClone.DataBase
     public class MockDB
     {
 
-        List<string> Files = Directory.GetFiles(Environment.CurrentDirectory + @"..\..\..\Images", "*.png", SearchOption.TopDirectoryOnly).ToList();
-        List<AppModel> Apps = new List<AppModel>();
-        public MockDB()
+        static List<string> Files = Directory.GetFiles(Environment.CurrentDirectory + @"..\..\..\Images", "*.png", SearchOption.TopDirectoryOnly).ToList();
+       
+        
+        public static List<AppModel> GetAppModels(AppsMainType type)
         {
+            List<AppModel> apps = new List<AppModel>();
             AppsMainType mainType = AppsMainType.UtilityApp;
             for (int i = 0; i < Files.Count; i++)
             {
-                if (i % 2 == 0)
-                {
-                    if (i < 20)
-                        mainType = AppsMainType.GameApp;
-                    else if (i > 60)
-                        mainType = AppsMainType.EntertainmentApp;
-                }
-                else if (i % 2 != 0)
-                {
-                    if (i < 40)
-                        mainType = AppsMainType.EntertainmentApp;
-                }
+                if (i < 25)
+                    mainType = AppsMainType.GameApp;
+                else if (i < 50)
+                    mainType = AppsMainType.EntertainmentApp;
+                else
+                    mainType = AppsMainType.UtilityApp;
 
-                Apps.Add(new AppModel(Files[i], mainType, i * 130));
+                apps.Add(new AppModel(Files[i], mainType, i * 150));
             }
-
-        }
-
-        public List<AppModel> GetAppModels(AppsMainType type)
-        {
-           
             if (type == AppsMainType.None)
             {
-                return Apps;
+                return apps;
             }
-
+           
             
-            return Apps.Where(x => x.AppMainType == type).ToList();
+            return apps.Where(x => x.AppMainType == type).ToList();
 
 
         }

@@ -24,9 +24,9 @@ namespace MSAppStoreClone.UserControls
     public partial class AppsUC : UserControl
     {
 
-        List<string> Files = Directory.GetFiles(Environment.CurrentDirectory + @"..\..\..\Images", "*.png", SearchOption.TopDirectoryOnly).ToList();
+      
         bool IsAppUCWide = false;
-        MockDB MockDataBase = new MockDB();
+       
 
         List<AppModel> Apps;
 
@@ -75,7 +75,7 @@ namespace MSAppStoreClone.UserControls
             
             this.Title = title;
             this.DataContext = this;
-            this.Apps = MockDataBase.GetAppModels(type);
+            this.Apps = MockDB.GetAppModels(type);
             this.IsAppUCWide = isWide;
             if (isWide)
                 this.MainStackPanelOrientation = Orientation.Vertical;
@@ -95,9 +95,12 @@ namespace MSAppStoreClone.UserControls
                 if (count == this.MainStackPanel.Children.Count)
                     return;
 
+               
+
                 if (count > this.MainStackPanel.Children.Count)
                 {
                     int addcount = count + this.MainStackPanel.Children.Count;
+                   
                     for (int i = this.MainStackPanel.Children.Count; i < addcount; i++)
                     {
                         if (i >= Apps.Count)
@@ -109,6 +112,7 @@ namespace MSAppStoreClone.UserControls
                         {
                             app.ProductName.Text = Apps[i].AppName;
                             app.ProductPrice.Text = Apps[i].Price == 0.0 ? "Free" : Apps[i].Price.ToString();
+                            app.ProductType.Text = Apps[i].AppTypeName;
                         }
                         catch (Exception ex)
                         {
@@ -148,10 +152,12 @@ namespace MSAppStoreClone.UserControls
                 for (int i = 0; i < count; i++)
                 {
                     AnAppUC app = new AnAppUC();
-                    app.ProductImage.Source = new BitmapImage(new Uri(Files[i]));
+                    app.ProductImage.Source = new BitmapImage(new Uri(Apps[i].ImagPath));
                     try
                     {
-                        app.ProductName.Text = System.IO.Path.GetFileNameWithoutExtension(Files[i]).Split('-')[1];
+                        app.ProductName.Text = Apps[i].AppName;
+                        app.ProductPrice.Text = Apps[i].Price == 0.0 ? "Free" : Apps[i].Price.ToString();
+                        app.ProductType.Text = Apps[i].AppTypeName;
                     }
                     catch (Exception ex)
                     {
@@ -166,16 +172,17 @@ namespace MSAppStoreClone.UserControls
                 for (int i = 0; i < 3; i++)
                 {
                     AnAppWideStyleUC app = new AnAppWideStyleUC();
-                    app.ProductImage.Source = new BitmapImage(new Uri(Files[i]));
+                    app.ProductImage.Source = new BitmapImage(new Uri(Apps[i].ImagPath));
                     try
                     {
-                        app.ProductName.Text = System.IO.Path.GetFileNameWithoutExtension(Files[i]).Split('-')[1];
+                        app.ProductName.Text = Apps[i].AppName;
+                        app.ProductPrice.Text = Apps[i].Price == 0.0 ? "Free" : Apps[i].Price.ToString();
+                        app.ProductType.Text = Apps[i].AppTypeName;
                     }
                     catch (Exception ex)
                     {
                         Console.WriteLine(ex.Message);
                     }
-
                     this.MainStackPanel.Children.Add(app);
                 }
             }

@@ -53,7 +53,7 @@
                MouseUp="ProductImage_MouseUp"
                Source="/MSAppStoreClone;component/Images/001-mail inbox app.png"></Image>
             <Grid Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="3">
-                <TextBlock x:Name="ProductName"
+                <TextBlock x:Name="ProductName"                           
                        Foreground="DarkSlateGray"
                        FontSize="16"
                        FontWeight="Bold"
