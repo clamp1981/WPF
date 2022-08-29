@@ -24,7 +24,8 @@ namespace MSAppStoreClone.UserControls
     {
 
         List<string> Files = Directory.GetFiles(Environment.CurrentDirectory + @"..\..\..\Images", "*.png", SearchOption.TopDirectoryOnly).ToList();
-        int ContentCount = 0;
+        bool IsAppUCWide = false;
+
         public string Title
         {
             get { return (string )GetValue(TitleProperty); }
@@ -36,32 +37,106 @@ namespace MSAppStoreClone.UserControls
             DependencyProperty.Register("Title", typeof(string ), typeof(AppsUC), new PropertyMetadata(default(string)));
 
 
-        public AppsUC( string title )
+
+        public Orientation MainStackPanelOrientation
+        {
+            get { return (Orientation)GetValue(MainStackPanelOrientationProperty); }
+            set { SetValue(MainStackPanelOrientationProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for MyProperty.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty MainStackPanelOrientationProperty =
+            DependencyProperty.Register("MainStackPanelOrientation", typeof(Orientation), typeof(AppsUC), new PropertyMetadata(default(Orientation)));
+
+
+
+
+        public double MainPanelWidth
+        {
+            get { return (double)GetValue(MainPanelWidthProperty); }
+            set { SetValue(MainPanelWidthProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for MainPanelWidth.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty MainPanelWidthProperty =
+            DependencyProperty.Register("MainPanelWidth", typeof(double), typeof(AppsUC), new PropertyMetadata(default(double)));
+
+
+
+
+
+        public AppsUC( string title , bool isWide = false)
         {
             InitializeComponent();
             
             this.Title = title;
             this.DataContext = this;
-
-           
-
+            this.IsAppUCWide = isWide;
+            if (isWide)
+                this.MainStackPanelOrientation = Orientation.Vertical;
+            else
+                this.MainStackPanelOrientation = Orientation.Horizontal;
 
         }
 
         private void UserControl_SizeChanged(object sender, SizeChangedEventArgs e)
         {
-            if (ContentCount == 0)
-                return;
-
-            int count = Convert.ToInt32(Math.Truncate( this.ActualWidth / 150) );
-            Debug.WriteLine($"UserControl_SizeChanged MainStackPanel width : {this.MainStackPanel.ActualWidth}, width : { this.ActualWidth}, count : {count}");
-            if ( count == this.MainStackPanel.Children.Count )
-                return;
-
-            if (count > this.MainStackPanel.Children.Count)
+            this.MainPanelWidth = this.ActualWidth;
+            if (this.IsAppUCWide == false)
             {
-                int addcount = count + this.MainStackPanel.Children.Count;
-                for (int i = this.MainStackPanel.Children.Count; i < addcount; i++)
+                
+                int count = Convert.ToInt32(Math.Truncate(this.ActualWidth / 150));
+                Debug.WriteLine($"UserControl_SizeChanged MainStackPanel width : {this.MainStackPanel.ActualWidth}, width : {this.ActualWidth}, count : {count}");
+                if (count == this.MainStackPanel.Children.Count)
+                    return;
+
+                if (count > this.MainStackPanel.Children.Count)
+                {
+                    int addcount = count + this.MainStackPanel.Children.Count;
+                    for (int i = this.MainStackPanel.Children.Count; i < addcount; i++)
+                    {
+                        AnAppUC app = new AnAppUC();                       
+                        app.ProductImage.Source = new BitmapImage(new Uri(Files[i]));
+                        try
+                        {
+                            app.ProductName.Text = System.IO.Path.GetFileNameWithoutExtension(Files[i]).Split('-')[1];
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine(ex.Message);
+                        }
+
+                        this.MainStackPanel.Children.Add(app);
+                    }
+                }
+                else
+                {
+                    int removeCount = this.MainStackPanel.Children.Count - count;
+                    for (int i = 0; i < removeCount; i++)
+                    {
+                        this.MainStackPanel.Children.RemoveAt(this.MainStackPanel.Children.Count - 1);
+                    }
+                }
+            }
+            //else
+            //{
+            //    foreach (var item in this.MainStackPanel.Children)
+            //    {
+            //        AnAppWideStyleUC app = item as AnAppWideStyleUC;
+            //        app.Width = this.ActualWidth;
+            //    }
+            //}
+            
+
+        }
+
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            if( this.IsAppUCWide == false )
+            {
+                int count = Convert.ToInt32(Math.Truncate(this.ActualWidth / 150));
+                for (int i = 0; i < count; i++)
                 {
                     AnAppUC app = new AnAppUC();
                     app.ProductImage.Source = new BitmapImage(new Uri(Files[i]));
@@ -79,36 +154,25 @@ namespace MSAppStoreClone.UserControls
             }
             else
             {
-                int removeCount = this.MainStackPanel.Children.Count - count;
-                for (int i = 0; i < removeCount; i++)
+                for (int i = 0; i < 3; i++)
                 {
-                    this.MainStackPanel.Children.RemoveAt(this.MainStackPanel.Children.Count-1);
+                    AnAppWideStyleUC app = new AnAppWideStyleUC();
+                    app.ProductImage.Source = new BitmapImage(new Uri(Files[i]));
+                    try
+                    {
+                        app.ProductName.Text = System.IO.Path.GetFileNameWithoutExtension(Files[i]).Split('-')[1];
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+
+                    this.MainStackPanel.Children.Add(app);
                 }
             }
-           
-        }
+            
 
-
-        private void UserControl_Loaded(object sender, RoutedEventArgs e)
-        {
-            int count = Convert.ToInt32(Math.Truncate(this.ActualWidth / 150));
-            for (int i = 0; i < count; i++)
-            {
-                AnAppUC app = new AnAppUC();
-                app.ProductImage.Source = new BitmapImage(new Uri(Files[i]));
-                try
-                {
-                    app.ProductName.Text = System.IO.Path.GetFileNameWithoutExtension(Files[i]).Split('-')[1];
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
-
-                this.MainStackPanel.Children.Add(app);
-            }
-
-            ContentCount = count;
+            
         }
     }
 }

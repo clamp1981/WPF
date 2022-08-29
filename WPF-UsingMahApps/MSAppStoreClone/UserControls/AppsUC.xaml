@@ -5,23 +5,35 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MSAppStoreClone.UserControls"
              mc:Ignorable="d" 
-             d:DesignHeight="350" d:DesignWidth="800" SizeChanged="UserControl_SizeChanged" Loaded="UserControl_Loaded">
+             d:DesignHeight="350" d:DesignWidth="800" SizeChanged="UserControl_SizeChanged" Loaded="UserControl_Loaded" HorizontalContentAlignment="Left">
     <Grid Background="White" >
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="0.1*"/>
                 <RowDefinition Height="0.9*"/>
             </Grid.RowDefinitions>
-            <Grid Grid.Row="0" Margin="10,5,0,0">
-                <TextBlock 
-                   x:Name="AppsTitle"
-                   FontSize="16"                   
-                   FontWeight="Bold"
-                   VerticalAlignment="Center"
-                   Text="{Binding Title}"/>
+            <Grid Grid.Row="0" Margin="10,5,10,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.5*"/>
+                    <ColumnDefinition Width="0.5*"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Column="0"
+                           x:Name="AppsTitle"
+                           FontSize="16"                   
+                           FontWeight="Bold"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center"
+                           Text="{Binding Title}"/>
+                <TextBlock Grid.Column="1"
+                           HorizontalAlignment="Right"
+                           VerticalAlignment="Center">
+                     <Hyperlink>View more</Hyperlink>
+                </TextBlock>
+                
             </Grid>
-            <Grid Grid.Row="1" Margin="10,5,0,0">
-                <StackPanel x:Name="MainStackPanel" Orientation="Horizontal"/>
+            <Grid Grid.Row="1" Margin="5">
+                <StackPanel x:Name="MainStackPanel" Width="{Binding MainPanelWidth}" Orientation="{Binding MainStackPanelOrientation}"/>
             </Grid>
 
         </Grid>

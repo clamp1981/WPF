@@ -1,5 +1,5 @@
 ﻿
-using MSAppStoreClone.Common;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,7 +23,7 @@ namespace MSAppStoreClone.UserControls
     public partial class MenuUC : UserControl
     {
         
-        public MenuTypes MenuType { get; set; }
+       
         public string ImageSource
         {
             get { return (string)GetValue(ImageSourceProperty); }
@@ -46,11 +46,11 @@ namespace MSAppStoreClone.UserControls
             DependencyProperty.Register("ImageSource", typeof(string), typeof(MenuUC), new PropertyMetadata(default(string)));
 
 
-        public MenuUC( string imagePath, MenuTypes menuType )
+        public MenuUC( string imagePath )
         {
             InitializeComponent();
             this.ImageSource = imagePath;
-            this.MenuType = menuType;
+            
             this.ClickedBarVisibility = Visibility.Hidden;
             this.DataContext = this;
 
