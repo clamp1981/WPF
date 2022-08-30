@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MSAppStoreClone.DataBase;
+using MSAppStoreClone.UserControls;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,14 @@ namespace MSAppStoreClone.Pages
     /// </summary>
     public partial class DetailPage : Page
     {
-        public DetailPage()
+
+        DetailTopAppUC _topApp;
+        public DetailPage(AppModel app)
         {
             InitializeComponent();
+
+            _topApp = new DetailTopAppUC(app);
+            MainStackPanel.Children.Add(_topApp);
         }
     }
 }

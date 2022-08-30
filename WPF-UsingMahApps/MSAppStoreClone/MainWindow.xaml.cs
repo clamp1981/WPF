@@ -17,9 +17,6 @@ namespace MSAppStoreClone
 
             MainHomePage = new HomePage();
             MainHomeFrame.Content = MainHomePage;
-
-
-
         }
     }
 }

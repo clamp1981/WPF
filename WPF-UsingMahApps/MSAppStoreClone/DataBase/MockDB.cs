@@ -33,14 +33,15 @@ namespace MSAppStoreClone.DataBase
         public string AppName { get; private set; }
 
         public string AppTypeName { get; private set; }
-
         public int SaledCount { get; private set; }
+        public string AppSummary { get; private set; }
 
         public AppModel( string imagPath, AppsMainType type, double price )
         {
             this.ImagPath = imagPath;
             this.AppMainType = type;
-            this.AppName = System.IO.Path.GetFileNameWithoutExtension(imagPath).Split('-')[1];
+            string appName = System.IO.Path.GetFileNameWithoutExtension(imagPath).Split('-')[1].Split(' ')[0];
+            this.AppName = appName.Substring(0, 1).ToUpper() + appName.Substring(1);
             this.Price = price;
 
             if (this.AppMainType == AppsMainType.GameApp)
@@ -52,6 +53,8 @@ namespace MSAppStoreClone.DataBase
 
             Random rd = new Random();
             this.SaledCount = rd.Next(100000);
+
+            this.AppSummary = "111111111111111111111111111111";
         }
     }
 

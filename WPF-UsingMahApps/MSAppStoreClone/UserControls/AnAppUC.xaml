@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:MSAppStoreClone.UserControls"
              mc:Ignorable="d"
              Height="300"
-             Width="150">
+             Width="150" MouseLeftButtonUp="UserControl_MouseLeftButtonUp">
     
     <Border x:Name="MainBorder" Margin="5" CornerRadius="2" Background="White" BorderBrush="LightGray" BorderThickness="1" Cursor="Arrow" >
         <Border.Effect>
@@ -27,7 +27,7 @@
                 </Style.Triggers>
             </Style>
         </Border.Style>
-        <Grid>            
+        <Grid MouseLeftButtonUp="Grid_MouseLeftButtonUp">            
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="10*"/>
                 <ColumnDefinition Width="10*"/>

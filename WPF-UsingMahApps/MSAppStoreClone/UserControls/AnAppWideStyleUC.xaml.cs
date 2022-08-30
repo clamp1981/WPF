@@ -20,9 +20,19 @@ namespace MSAppStoreClone.UserControls
     /// </summary>
     public partial class AnAppWideStyleUC : UserControl
     {
+        public event EventHandler<MouseButtonEventArgs> AppClicked;
+        protected virtual void OnAppClicked(MouseButtonEventArgs e)
+        {
+            AppClicked?.Invoke(this, e);
+        }
         public AnAppWideStyleUC()
         {
             InitializeComponent();
+        }
+
+        private void UserControl_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            OnAppClicked(e);
         }
     }
 }

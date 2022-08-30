@@ -20,6 +20,12 @@ namespace MSAppStoreClone.UserControls
     /// </summary>
     public partial class AnAppUC : UserControl
     {
+
+        public event EventHandler<MouseButtonEventArgs> AppClicked;
+        protected virtual void OnAppClicked(MouseButtonEventArgs e)
+        {
+            AppClicked?.Invoke(this, e);
+        }
         public AnAppUC()
         {
             InitializeComponent();
@@ -28,6 +34,16 @@ namespace MSAppStoreClone.UserControls
         private void ProductImage_MouseUp(object sender, MouseButtonEventArgs e)
         {
 
+        }
+
+        private void Grid_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+           
+        }
+
+        private void UserControl_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            OnAppClicked(e);
         }
     }
 }

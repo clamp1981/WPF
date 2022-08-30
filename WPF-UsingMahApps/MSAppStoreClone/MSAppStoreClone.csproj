@@ -77,6 +77,9 @@
     <Compile Include="UserControls\AppsUC.xaml.cs">
       <DependentUpon>AppsUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\DetailTopAppUC.xaml.cs">
+      <DependentUpon>DetailTopAppUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\MenuUC.xaml.cs">
       <DependentUpon>MenuUC.xaml</DependentUpon>
     </Compile>
@@ -116,6 +119,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\AppsUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\DetailTopAppUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

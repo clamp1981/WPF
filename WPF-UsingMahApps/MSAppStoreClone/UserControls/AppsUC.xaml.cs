@@ -104,7 +104,9 @@ namespace MSAppStoreClone.UserControls
                    
                     for (int i = this.MainStackPanel.Children.Count; i < addcount; i++)
                     {
-                        AddApps(new AnAppUC(), Apps[i]);
+                        AnAppUC app = new AnAppUC();
+                        app.AppClicked += App_AppClicked;
+                        AddApps(app, Apps[i]);
 
                     }
                 }
@@ -118,9 +120,28 @@ namespace MSAppStoreClone.UserControls
                     }
                 }
             }
+            else
+            {
+
+                if ( this.MainStackPanel.Children.Count == 3)
+                    return;
+
+                for (int i = 0; i < 3; i++)
+                {
+                    AnAppWideStyleUC app = new AnAppWideStyleUC();
+                    app.AppClicked += App_AppClicked;
+                    AddApps(app, Apps[i]);
+
+                }
+            }
            
             
 
+        }
+
+        private void App_AppClicked(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("AAAAAAAAAAAAAAA");
         }
 
         private void AddApps(UserControl uc, AppModel appModel)
@@ -130,6 +151,7 @@ namespace MSAppStoreClone.UserControls
                 app = uc as AnAppUC;
             else
                 app = uc as AnAppWideStyleUC;
+           
             //AnAppUC app = new AnAppUC();
             app.ProductImage.Source = new BitmapImage(new Uri(appModel.ImagPath));
             try
