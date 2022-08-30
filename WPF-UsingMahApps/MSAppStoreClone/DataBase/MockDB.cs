@@ -16,6 +16,13 @@ namespace MSAppStoreClone.DataBase
         EntertainmentApp
     }
 
+    public enum DisplayType
+    {
+        All,
+        Best,
+        Free
+    }
+
    
     public class AppModel
     {
@@ -26,6 +33,8 @@ namespace MSAppStoreClone.DataBase
         public string AppName { get; private set; }
 
         public string AppTypeName { get; private set; }
+
+        public int SaledCount { get; private set; }
 
         public AppModel( string imagPath, AppsMainType type, double price )
         {
@@ -40,6 +49,9 @@ namespace MSAppStoreClone.DataBase
                 this.AppTypeName = "Entertainment";
             else
                 this.AppTypeName = "Utility";
+
+            Random rd = new Random();
+            this.SaledCount = rd.Next(100000);
         }
     }
 
@@ -50,10 +62,11 @@ namespace MSAppStoreClone.DataBase
         static List<string> Files = Directory.GetFiles(Environment.CurrentDirectory + @"..\..\..\Images", "*.png", SearchOption.TopDirectoryOnly).ToList();
        
         
-        public static List<AppModel> GetAppModels(AppsMainType type)
+        public static List<AppModel> GetAppModels(AppsMainType type, DisplayType displayType = DisplayType.All )
         {
             List<AppModel> apps = new List<AppModel>();
             AppsMainType mainType = AppsMainType.UtilityApp;
+            double price = 0.0;
             for (int i = 0; i < Files.Count; i++)
             {
                 if (i < 25)
@@ -63,15 +76,24 @@ namespace MSAppStoreClone.DataBase
                 else
                     mainType = AppsMainType.UtilityApp;
 
-                apps.Add(new AppModel(Files[i], mainType, i * 150));
+                if (i % 6 == 0)
+                    price = 0.0;
+                else
+                    price = (i + 1) * 150;
+
+                apps.Add(new AppModel(Files[i], mainType, price));
             }
-            if (type == AppsMainType.None)
-            {
-                return apps;
-            }
-           
-            
-            return apps.Where(x => x.AppMainType == type).ToList();
+
+            if (type != AppsMainType.None)
+                apps = apps.Where(x => x.AppMainType == type).ToList();
+
+            if (displayType == DisplayType.Best)
+                apps = apps.OrderByDescending(x => x.SaledCount).ToList();
+            else if (displayType == DisplayType.Free)
+                apps = apps.Where(x => (x.Price == 0.0)).ToList();
+
+
+            return apps;
 
 
         }

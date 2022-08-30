@@ -26,8 +26,6 @@ namespace MSAppStoreClone.UserControls
 
       
         bool IsAppUCWide = false;
-       
-
         List<AppModel> Apps;
 
         public string Title
@@ -69,13 +67,13 @@ namespace MSAppStoreClone.UserControls
 
 
 
-        public AppsUC( string title , AppsMainType type,  bool isWide = false)
+        public AppsUC( string title , AppsMainType type, DisplayType displayType,  bool isWide = false)
         {
             InitializeComponent();
             
             this.Title = title;
             this.DataContext = this;
-            this.Apps = MockDB.GetAppModels(type);
+            this.Apps = MockDB.GetAppModels(type , displayType );
             this.IsAppUCWide = isWide;
             if (isWide)
                 this.MainStackPanelOrientation = Orientation.Vertical;
@@ -95,31 +93,19 @@ namespace MSAppStoreClone.UserControls
                 if (count == this.MainStackPanel.Children.Count)
                     return;
 
-               
 
+              
                 if (count > this.MainStackPanel.Children.Count)
                 {
                     int addcount = count + this.MainStackPanel.Children.Count;
+
+                    if (Apps.Count <= addcount)
+                        addcount = Apps.Count;
                    
                     for (int i = this.MainStackPanel.Children.Count; i < addcount; i++)
                     {
-                        if (i >= Apps.Count)
-                            return;
+                        AddApps(new AnAppUC(), Apps[i]);
 
-                        AnAppUC app = new AnAppUC();                       
-                        app.ProductImage.Source = new BitmapImage(new Uri(Apps[i].ImagPath));
-                        try
-                        {
-                            app.ProductName.Text = Apps[i].AppName;
-                            app.ProductPrice.Text = Apps[i].Price == 0.0 ? "Free" : Apps[i].Price.ToString();
-                            app.ProductType.Text = Apps[i].AppTypeName;
-                        }
-                        catch (Exception ex)
-                        {
-                            Console.WriteLine(ex.Message);
-                        }
-
-                        this.MainStackPanel.Children.Add(app);
                     }
                 }
                 else
@@ -128,64 +114,74 @@ namespace MSAppStoreClone.UserControls
                     for (int i = 0; i < removeCount; i++)
                     {
                         this.MainStackPanel.Children.RemoveAt(this.MainStackPanel.Children.Count - 1);
+                        
                     }
                 }
             }
-            //else
-            //{
-            //    foreach (var item in this.MainStackPanel.Children)
-            //    {
-            //        AnAppWideStyleUC app = item as AnAppWideStyleUC;
-            //        app.Width = this.ActualWidth;
-            //    }
-            //}
+           
             
 
+        }
+
+        private void AddApps(UserControl uc, AppModel appModel)
+        {
+            dynamic app = null;
+            if(this.IsAppUCWide == false)
+                app = uc as AnAppUC;
+            else
+                app = uc as AnAppWideStyleUC;
+            //AnAppUC app = new AnAppUC();
+            app.ProductImage.Source = new BitmapImage(new Uri(appModel.ImagPath));
+            try
+            {
+                app.ProductName.Text = appModel.AppName;
+                app.ProductPrice.Text = appModel.Price == 0.0 ? "Free" : string.Format("{0:#,0}",  appModel.Price );
+                app.ProductType.Text = appModel.AppTypeName;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            this.MainStackPanel.Children.Add(app);
+           
         }
 
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            if( this.IsAppUCWide == false )
-            {
-                int count = Convert.ToInt32(Math.Truncate(this.ActualWidth / 150));
-                for (int i = 0; i < count; i++)
-                {
-                    AnAppUC app = new AnAppUC();
-                    app.ProductImage.Source = new BitmapImage(new Uri(Apps[i].ImagPath));
-                    try
-                    {
-                        app.ProductName.Text = Apps[i].AppName;
-                        app.ProductPrice.Text = Apps[i].Price == 0.0 ? "Free" : Apps[i].Price.ToString();
-                        app.ProductType.Text = Apps[i].AppTypeName;
-                    }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine(ex.Message);
-                    }
+            //if( this.IsAppUCWide == false )
+            //{
+            //    int count = Convert.ToInt32(Math.Truncate(this.ActualWidth / 150));
+            //    if (count >= Apps.Count)
+            //        count = Apps.Count;
 
-                    this.MainStackPanel.Children.Add(app);
-                }
-            }
-            else
-            {
-                for (int i = 0; i < 3; i++)
-                {
-                    AnAppWideStyleUC app = new AnAppWideStyleUC();
-                    app.ProductImage.Source = new BitmapImage(new Uri(Apps[i].ImagPath));
-                    try
-                    {
-                        app.ProductName.Text = Apps[i].AppName;
-                        app.ProductPrice.Text = Apps[i].Price == 0.0 ? "Free" : Apps[i].Price.ToString();
-                        app.ProductType.Text = Apps[i].AppTypeName;
-                    }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine(ex.Message);
-                    }
-                    this.MainStackPanel.Children.Add(app);
-                }
-            }
+            //    for (int i = 0; i < count; i++)
+            //    {
+            //        AddApps(new AnAppUC(),  Apps[i]);
+            //    }
+            //}
+            //else
+            //{
+            //    for (int i = 0; i < 3; i++)
+            //    {
+            //        AddApps(new AnAppWideStyleUC(), Apps[i]);
+
+            //        //AnAppWideStyleUC app = new AnAppWideStyleUC();
+            //        //app.ProductImage.Source = new BitmapImage(new Uri(Apps[i].ImagPath));
+            //        //try
+            //        //{
+            //        //    app.ProductName.Text = Apps[i].AppName;
+            //        //    app.ProductPrice.Text = Apps[i].Price == 0.0 ? "Free" : Apps[i].Price.ToString("{0:#.0}");
+            //        //    app.ProductType.Text = Apps[i].AppTypeName;
+            //        //}
+            //        //catch (Exception ex)
+            //        //{
+            //        //    Console.WriteLine(ex.Message);
+            //        //}
+            //        //this.MainStackPanel.Children.Add(app);
+            //    }
+            //}
             
 
             
