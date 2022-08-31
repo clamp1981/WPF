@@ -5,8 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MSAppStoreClone.UserControls"
              mc:Ignorable="d" 
-             d:DesignHeight="250" d:DesignWidth="800">
-    <Border x:Name="MainBorder" Margin="5" CornerRadius="2" Background="White" BorderBrush="LightGray" BorderThickness="1" Cursor="Arrow" >
+             d:DesignHeight="240" d:DesignWidth="800">
+    <Border x:Name="MainBorder" Margin="5" CornerRadius="5" Background="WhiteSmoke" BorderBrush="LightGray" BorderThickness="1" Cursor="Arrow" >
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="5"/>
@@ -26,7 +26,7 @@
 
             </Grid.RowDefinitions>
             <Grid Grid.Row="1" Grid.Column="1" Grid.RowSpan="3">
-                <Image Margin="10,10,10,30" 
+                <Image Margin="10,10,10,50" 
                     x:Name="ProductImage"
                        HorizontalAlignment="Center"
                        Source="/Images/014-music.png"/>
@@ -59,13 +59,28 @@
                     x:Name="ProductSummery"
                        Foreground="DarkSlateGray"
                        FontSize="15"                     
-                       TextWrapping="Wrap">
+                       TextWrapping= "WrapWithOverflow">
                        iTunes는 음악, 동영상, TV 프로그램 등을 즐길 수 있는 가장 간편한 방법이며 쉽게 구성할 수 있습니다.</TextBlock>
 
+                <Border  Grid.Row="5" VerticalAlignment="Center"
+                         HorizontalAlignment="Left"
+                         CornerRadius="5" Background="White" 
+                         BorderBrush="LightGray" BorderThickness="1"
+                         Width="100">
+                    <Grid>
+                        <Label Grid.Row="2" 
+                               x:Name="ProducType"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Center"
+                               Foreground="DarkSlateGray"
+                               FontSize="12">엔터테이먼트</Label>
+                    </Grid>
+                </Border>
 
             </Grid>
             <Grid Grid.Row="1" Grid.Column="5" >
-                <Button  Background="White" BorderBrush="LightGray" BorderThickness="1"
+                <Button  Background="BlueViolet" Foreground="White"
+                         BorderBrush="LightGray" BorderThickness="1"
                             Height="40"
                             VerticalAlignment="Top"
                             FontSize="10">

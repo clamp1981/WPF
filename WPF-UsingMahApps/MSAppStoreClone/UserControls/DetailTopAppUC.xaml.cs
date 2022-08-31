@@ -29,6 +29,7 @@ namespace MSAppStoreClone.UserControls
             this.ProductImage.Source = new BitmapImage(new Uri(app.ImagPath));
             this.ProductName.Text = app.AppName;
             this.ProductSummery.Text = app.AppSummary;
+            this.ProducType.Content = app.AppTypeName;
             Hyperlink hyperlink = new Hyperlink();
             hyperlink.Inlines.Clear();
             hyperlink.Inlines.Add(app.AppName + " Inc");

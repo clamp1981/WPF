@@ -35,6 +35,9 @@ namespace MSAppStoreClone.DataBase
         public string AppTypeName { get; private set; }
         public int SaledCount { get; private set; }
         public string AppSummary { get; private set; }
+        public string AppDetail { get; private set; }
+
+        public List<string> ScreenShotImagePathList { get; private set; }
 
         public AppModel( string imagPath, AppsMainType type, double price )
         {
@@ -54,7 +57,28 @@ namespace MSAppStoreClone.DataBase
             Random rd = new Random();
             this.SaledCount = rd.Next(100000);
 
-            this.AppSummary = "111111111111111111111111111111";
+            this.AppSummary = $"{this.AppName}는 음악, 동영상, TV 프로그램 등을 즐길 수 있는 가장 간편한 방법이며 쉽게 구성할 수 있습니다.";
+
+            this.AppDetail = $"{this.AppName}는 음악, 동영상, TV 프로그램 등을 즐길 수 있는 가장 간편한 방법이며 쉽게 구성할 수 있습니다.\r\n\r\n" +
+                $"{this.AppName} 앱은 무료로 이용하실 수 있으며, 수천 편의 영화와 TV 프로그램을 무제한으로 시청하실 수 있습니다.\r\n\r\n" +
+                $"{this.AppName} 장점\r\n" +
+                $"- {this.AppName} 회원은 저렴한 월 요금으로 TV 프로그램을 무제한으로 시청할 수 있습니다. \r\n" +
+                $"- {this.AppName} 앱으로 언제 어디서나 원하는 영화와 TV 프로그램을 자유롭게 시청하실 수 있습니다.\r\n" +
+                $"- 수천 편의 영화와 TV 프로그램을 골라 시청할 수 있으며, 정기적으로 신규 동영상이 등록됩니다.\r\n\r\n" +
+                $"설치를 클릭하시면 Netflix 앱 설치 및 업데이트와 업그레이드에 동의하시는 것이 됩니다.";
+
+            int appNumber = Convert.ToInt32(System.IO.Path.GetFileNameWithoutExtension(imagPath).Split('-')[0]);
+            string url = Path.GetDirectoryName(imagPath) + "\\ScreenShot";
+            if ( appNumber % 2 == 0 )
+            {
+                url += "\\02";
+            }
+            else
+            {
+                url += "\\01";
+            }
+            ScreenShotImagePathList = Directory.GetFiles(url, " *.png", SearchOption.TopDirectoryOnly).ToList();
+
         }
     }
 
