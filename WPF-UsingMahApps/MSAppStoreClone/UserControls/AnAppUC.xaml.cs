@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MSAppStoreClone.DataBase;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,14 +22,22 @@ namespace MSAppStoreClone.UserControls
     public partial class AnAppUC : UserControl
     {
 
-        public event EventHandler<MouseButtonEventArgs> AppClicked;
-        protected virtual void OnAppClicked(MouseButtonEventArgs e)
+        public event EventHandler<AppClickedEventArges> AppClicked;
+        protected virtual void OnAppClicked(AppClickedEventArges e)
         {
             AppClicked?.Invoke(this, e);
         }
-        public AnAppUC()
+
+        public AppModel Model { get; set; }
+        public AnAppUC(AppModel appModel)
         {
             InitializeComponent();
+            Model = appModel;
+
+            this.ProductImage.Source = new BitmapImage(new Uri(appModel.ImagPath));
+            this.ProductName.Text = appModel.AppName;
+            this.ProductPrice.Text = appModel.Price == 0.0 ? "Free" : string.Format("{0:#,0}", appModel.Price);
+            this.ProductType.Text = appModel.AppTypeName;
         }
 
         private void ProductImage_MouseUp(object sender, MouseButtonEventArgs e)
@@ -43,7 +52,7 @@ namespace MSAppStoreClone.UserControls
 
         private void UserControl_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            OnAppClicked(e);
+            OnAppClicked(new AppClickedEventArges(Model));
         }
     }
 }

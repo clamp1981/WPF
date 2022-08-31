@@ -28,22 +28,22 @@ namespace MSAppStoreClone.Pages
             InitializeComponent();
             var files = Directory.GetFiles(Environment.CurrentDirectory + @"..\..\..\Images", "*.png", SearchOption.TopDirectoryOnly).ToList();
 
-            foreach (var file in files)
-            {
-                AnAppUC app = new AnAppUC();
-                app.ProductImage.Source = new BitmapImage(new Uri(file));
-                try
-                {
-                    app.ProductName.Text = System.IO.Path.GetFileNameWithoutExtension(file).Split('-')[1];
-                }
-                catch( Exception ex )
-                {
-                    Console.WriteLine(ex.Message);
-                }
+            //foreach (var file in files)
+            //{
+            //    AnAppUC app = new AnAppUC();
+            //    app.ProductImage.Source = new BitmapImage(new Uri(file));
+            //    try
+            //    {
+            //        app.ProductName.Text = System.IO.Path.GetFileNameWithoutExtension(file).Split('-')[1];
+            //    }
+            //    catch( Exception ex )
+            //    {
+            //        Console.WriteLine(ex.Message);
+            //    }
                 
-                this.AppsWrapPanel.Children.Add(app);
+            //    this.AppsWrapPanel.Children.Add(app);
               
-            }
+            //}
 
             
         }

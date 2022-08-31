@@ -23,8 +23,12 @@ namespace MSAppStoreClone.UserControls
     /// </summary>
     public partial class AppsUC : UserControl
     {
+        public event EventHandler<AppClickedEventArges> AppClicked;
+        protected virtual void OnAppClicked(AppClickedEventArges e)
+        {
+            AppClicked?.Invoke(this, e);
+        }
 
-      
         bool IsAppUCWide = false;
         List<AppModel> Apps;
 
@@ -104,9 +108,10 @@ namespace MSAppStoreClone.UserControls
                    
                     for (int i = this.MainStackPanel.Children.Count; i < addcount; i++)
                     {
-                        AnAppUC app = new AnAppUC();
+                        AnAppUC app = new AnAppUC(Apps[i]);
                         app.AppClicked += App_AppClicked;
-                        AddApps(app, Apps[i]);
+                        this.MainStackPanel.Children.Add(app);
+                        //AddApps(app, Apps[i]);
 
                     }
                 }
@@ -128,9 +133,10 @@ namespace MSAppStoreClone.UserControls
 
                 for (int i = 0; i < 3; i++)
                 {
-                    AnAppWideStyleUC app = new AnAppWideStyleUC();
+                    AnAppWideStyleUC app = new AnAppWideStyleUC(Apps[i]);
                     app.AppClicked += App_AppClicked;
-                    AddApps(app, Apps[i]);
+                    this.MainStackPanel.Children.Add(app);
+                    //AddApps(app, Apps[i]);
 
                 }
             }
@@ -139,10 +145,12 @@ namespace MSAppStoreClone.UserControls
 
         }
 
-        private void App_AppClicked(object sender, MouseButtonEventArgs e)
+        private void App_AppClicked(object sender, AppClickedEventArges e)
         {
-            MessageBox.Show("AAAAAAAAAAAAAAA");
+            OnAppClicked(e);
         }
+
+       
 
         private void AddApps(UserControl uc, AppModel appModel)
         {
