@@ -23,13 +23,16 @@ namespace MSAppStoreClone.Pages
     public partial class DetailPage : Page
     {
 
-        DetailTopAppUC _topApp;
+        DetailTopAppUC _topAppUc;
+        DetailBottomAppUC _detailAppUc;
         public DetailPage(AppModel app)
         {
             InitializeComponent();
 
-            _topApp = new DetailTopAppUC(app);
-            MainStackPanel.Children.Add(_topApp);
+            _topAppUc = new DetailTopAppUC(app);
+            _detailAppUc = new DetailBottomAppUC(app);
+            MainStackPanel.Children.Add(_topAppUc);
+            MainStackPanel.Children.Add(_detailAppUc);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using MSAppStoreClone.UserControls;
+﻿using MSAppStoreClone.DataBase;
+using MSAppStoreClone.UserControls;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -22,11 +23,30 @@ namespace MSAppStoreClone.Pages
     /// </summary>
     public partial class AppsPage : Page
     {
-        List<AnAppUC> Apps = new List<AnAppUC>();
-        public AppsPage()
+        public event EventHandler<AppClickedEventArges> AppClicked;
+        protected virtual void OnAppClicked(AppClickedEventArges e)
+        {
+            AppClicked?.Invoke(this, e);
+        }
+
+
+
+        List<AppModel> Apps;
+        public AppsPage(AppsMainType type, DisplayType displayType)
         {
             InitializeComponent();
-            var files = Directory.GetFiles(Environment.CurrentDirectory + @"..\..\..\Images", "*.png", SearchOption.TopDirectoryOnly).ToList();
+            this.Apps = MockDB.GetAppModels(type, displayType);
+
+            foreach (var App in this.Apps)
+            {
+                AnAppUC app = new AnAppUC(App);
+                app.AppClicked += App_AppClicked;
+                this.AppsWrapPanel.Children.Add(app);
+              
+            }
+           
+
+            //var files = Directory.GetFiles(Environment.CurrentDirectory + @"..\..\..\Images", "*.png", SearchOption.TopDirectoryOnly).ToList();
 
             //foreach (var file in files)
             //{
@@ -40,12 +60,17 @@ namespace MSAppStoreClone.Pages
             //    {
             //        Console.WriteLine(ex.Message);
             //    }
-                
+
             //    this.AppsWrapPanel.Children.Add(app);
-              
+
             //}
 
-            
+
+        }
+
+        private void App_AppClicked(object sender, AppClickedEventArges e)
+        {
+            OnAppClicked(e);
         }
     }
 }

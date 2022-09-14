@@ -28,6 +28,12 @@ namespace MSAppStoreClone.Pages
             AppClicked?.Invoke(this, e);
         }
 
+        public event EventHandler<ViewMoreClickedEventArges> ViewMoreClicked;
+        protected virtual void OnViewMoreClicked(ViewMoreClickedEventArges e)
+        {
+            ViewMoreClicked?.Invoke(this, e);
+        }
+
 
         TopAppsUC TopApps = new TopAppsUC();
         AppsUC BestEnterApps = null;
@@ -48,11 +54,21 @@ namespace MSAppStoreClone.Pages
             GameApps.AppClicked += Apps_AppClicked;
             FreeApps.AppClicked += Apps_AppClicked;
 
+            BestEnterApps.ViewMoreClicked += Apps_ViewMoreClicked;
+            UtilityApps.ViewMoreClicked += Apps_ViewMoreClicked;
+            GameApps.ViewMoreClicked += Apps_ViewMoreClicked;
+            FreeApps.ViewMoreClicked += Apps_ViewMoreClicked;
+
             MainStackPanel.Children.Add(BestEnterApps);
             MainStackPanel.Children.Add(UtilityApps);
             MainStackPanel.Children.Add(GameApps);
             MainStackPanel.Children.Add(FreeApps);
 
+        }
+
+        private void Apps_ViewMoreClicked(object sender, ViewMoreClickedEventArges e)
+        {
+            OnViewMoreClicked(e);
         }
 
         private void Apps_AppClicked(object sender, AppClickedEventArges e)
