@@ -26,9 +26,10 @@
                            VerticalAlignment="Center"
                            Text="{Binding Title}"/>
                 <TextBlock Grid.Column="1"
+                           x:Name="ViewMore"
                            HorizontalAlignment="Right"
                            VerticalAlignment="Center">
-                     <Hyperlink>View more</Hyperlink>
+                     <Hyperlink Click="Hyperlink_Click">View more</Hyperlink>
                 </TextBlock>
                 
             </Grid>

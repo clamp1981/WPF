@@ -26,7 +26,7 @@ namespace MSAppStoreClone
 
         private void MainHomePage_ViewMoreClicked(object sender, UserControls.ViewMoreClickedEventArges e)
         {
-            AppsPage = new AppsPage(e.MainType, e.AppDisplayType);
+            AppsPage = new AppsPage( e.Title, e.MainType, e.AppDisplayType);
             AppsPage.AppClicked += AppsPage_AppClicked;
             MainHomeFrame.Content = AppsPage;
         }

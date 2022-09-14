@@ -17,12 +17,13 @@
                 </Grid.RowDefinitions>
                 <Label Margin="10,5,10,0" Content="스크린샷" FontWeight="Bold" FontSize="18"></Label>
                 <Rectangle Grid.Row="1" Margin="10,0,10,0" Fill="LightGray" />
-                <StackPanel Grid.Row="2" Orientation="Horizontal">
+                <Grid x:Name="ScreenShotGrid" Grid.Row="2" Height="200"></Grid>
+                <!--<StackPanel Grid.Row="2" Orientation="Horizontal">
                     <Image Margin="5" Source="/MSAppStoreClone;component/Images/ScreenShot/01/82-circus fun.png"/>
                     <Image Margin="5" Source="/MSAppStoreClone;component/Images/ScreenShot/01/83-Race extreme.png"/>
                     <Image Margin="5" Source="/MSAppStoreClone;component/Images/ScreenShot/01/84-chat message.png"/>
                     <Image Margin="5" Source="/MSAppStoreClone;component/Images/ScreenShot/01/85-Night castle.png"/>
-                </StackPanel>
+                </StackPanel>-->
             </Grid>
             
         </Border>

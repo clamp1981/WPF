@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MSAppStoreClone.DataBase;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,11 @@ namespace MSAppStoreClone.UserControls
     /// </summary>
     public partial class DetailBottomAppUC : UserControl
     {
-        public DetailBottomAppUC()
+        public DetailBottomAppUC(AppModel app)
         {
             InitializeComponent();
+            this.ProductDetail.Text = app.AppDetail;
+            this.ScreenShotGrid.Children.Add(new ScreenShotUC(app.ScreenShotImagePathList));
         }
     }
 }

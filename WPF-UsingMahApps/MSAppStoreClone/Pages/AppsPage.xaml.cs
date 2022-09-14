@@ -31,10 +31,24 @@ namespace MSAppStoreClone.Pages
 
 
 
+        public string ViewTitle
+        {
+            get { return (string)GetValue(ViewTitleProperty); }
+            set { SetValue(ViewTitleProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for Title.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty ViewTitleProperty =
+            DependencyProperty.Register("ViewTitle", typeof(string), typeof(AppsPage), new PropertyMetadata(default(string)));
+
+
+
         List<AppModel> Apps;
-        public AppsPage(AppsMainType type, DisplayType displayType)
+        public AppsPage( string title, AppsMainType type, DisplayType displayType)
         {
             InitializeComponent();
+            this.DataContext = this;
+            this.ViewTitle = title;
             this.Apps = MockDB.GetAppModels(type, displayType);
 
             foreach (var App in this.Apps)

@@ -12,7 +12,8 @@
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="5"/>
-                <RowDefinition Height="100*"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="*"/>
                 <RowDefinition Height="5"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
@@ -20,7 +21,9 @@
                 <ColumnDefinition Width="100*"/>
                 <ColumnDefinition Width="5"/>
             </Grid.ColumnDefinitions>
-            <ScrollViewer  Grid.Row="1" Grid.Column="1" 
+            <TextBlock Grid.Row="1" Grid.Column="1" Margin="5,0,0,0"
+                        Text="{Binding ViewTitle}" FontSize="18" FontWeight="Bold"/>
+            <ScrollViewer  Grid.Row="2" Grid.Column="1" 
                            VerticalScrollBarVisibility="Hidden">
                 <WrapPanel 
                        x:Name="AppsWrapPanel"

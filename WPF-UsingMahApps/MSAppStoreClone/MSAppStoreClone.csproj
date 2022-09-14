@@ -74,14 +74,21 @@
     <Compile Include="UserControls\AnAppWideStyleUC.xaml.cs">
       <DependentUpon>AnAppWideStyleUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\AppClickedEventArges.cs" />
     <Compile Include="UserControls\AppsUC.xaml.cs">
       <DependentUpon>AppsUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\DetailBottomAppUC.xaml.cs">
+      <DependentUpon>DetailBottomAppUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\DetailTopAppUC.xaml.cs">
       <DependentUpon>DetailTopAppUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\MenuUC.xaml.cs">
       <DependentUpon>MenuUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ScreenShotUC.xaml.cs">
+      <DependentUpon>ScreenShotUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\TopAppsUC.xaml.cs">
       <DependentUpon>TopAppsUC.xaml</DependentUpon>
@@ -122,11 +129,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControls\DetailBottomAppUC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="UserControls\DetailTopAppUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\MenuUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\ScreenShotUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -254,6 +269,16 @@
     <Resource Include="Images\Home\83-Race extreme.png" />
     <Resource Include="Images\Home\84-chat message.png" />
     <Resource Include="Images\Home\85-Night castle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ScreenShot\01\82-circus fun.png" />
+    <Resource Include="Images\ScreenShot\01\83-Race extreme.png" />
+    <Resource Include="Images\ScreenShot\01\84-chat message.png" />
+    <Resource Include="Images\ScreenShot\01\85-Night castle.png" />
+    <Resource Include="Images\ScreenShot\02\82-circus fun.png" />
+    <Resource Include="Images\ScreenShot\02\83-Race extreme.png" />
+    <Resource Include="Images\ScreenShot\02\84-chat message.png" />
+    <Resource Include="Images\ScreenShot\02\85-Night castle.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

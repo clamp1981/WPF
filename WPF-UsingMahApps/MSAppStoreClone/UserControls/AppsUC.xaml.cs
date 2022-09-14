@@ -1,4 +1,4 @@
-﻿using MSAppStoreClone.DataBase;
+﻿ using MSAppStoreClone.DataBase;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -18,6 +18,20 @@ using System.Windows.Shapes;
 
 namespace MSAppStoreClone.UserControls
 {
+
+    public class ViewMoreClickedEventArges : EventArgs
+    {
+
+        public string Title { get; private set; }
+        public AppsMainType MainType { get; private set; }
+        public DisplayType AppDisplayType { get; private set; }
+        public ViewMoreClickedEventArges( string title, AppsMainType type, DisplayType displayType)
+        {
+            this.Title = title;
+            this.MainType = type;
+            this.AppDisplayType = displayType;
+        }
+    }
     /// <summary>
     /// Interaction logic for AppsUC.xaml
     /// </summary>
@@ -29,8 +43,15 @@ namespace MSAppStoreClone.UserControls
             AppClicked?.Invoke(this, e);
         }
 
+        public event EventHandler<ViewMoreClickedEventArges> ViewMoreClicked;
+        protected virtual void OnViewMoreClicked(ViewMoreClickedEventArges e)
+        {
+            ViewMoreClicked?.Invoke(this, e);
+        }
+
         bool IsAppUCWide = false;
         List<AppModel> Apps;
+        ViewMoreClickedEventArges _viewMoreClickedEventArges;
 
         public string Title
         {
@@ -70,7 +91,6 @@ namespace MSAppStoreClone.UserControls
 
 
 
-
         public AppsUC( string title , AppsMainType type, DisplayType displayType,  bool isWide = false)
         {
             InitializeComponent();
@@ -78,7 +98,10 @@ namespace MSAppStoreClone.UserControls
             this.Title = title;
             this.DataContext = this;
             this.Apps = MockDB.GetAppModels(type , displayType );
+
+            this._viewMoreClickedEventArges = new ViewMoreClickedEventArges(title, type, displayType);
             this.IsAppUCWide = isWide;
+           
             if (isWide)
                 this.MainStackPanelOrientation = Orientation.Vertical;
             else
@@ -215,6 +238,13 @@ namespace MSAppStoreClone.UserControls
             
 
             
+        }
+
+       
+
+        private void Hyperlink_Click(object sender, RoutedEventArgs e)
+        {
+            OnViewMoreClicked(_viewMoreClickedEventArges);
         }
     }
 }
