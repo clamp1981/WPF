@@ -1,6 +1,6 @@
 ﻿using MSAppStoreClone.Pages;
 using System.Windows;
-
+using System.Windows.Controls;
 
 namespace MSAppStoreClone
 {
@@ -14,12 +14,15 @@ namespace MSAppStoreClone
         DetailPage AppDetailPage { get; set; }
 
         AppsPage AppsPage { get; set; }
+
+        public int CurrentIndex { get; set; }
         public MainWindow()
         {
             InitializeComponent();
 
+            this.CurrentIndex = 0;
             MainHomePage = new HomePage();
-            MainHomePage.AppClicked += MainHomePage_AppClicked;
+            MainHomePage.AppClicked += AppsPage_AppClicked;
             MainHomePage.ViewMoreClicked += MainHomePage_ViewMoreClicked;
             MainHomeFrame.Content = MainHomePage;
         }
@@ -34,13 +37,67 @@ namespace MSAppStoreClone
         private void AppsPage_AppClicked(object sender, UserControls.AppClickedEventArges e)
         {
             AppDetailPage = new DetailPage(e.SelectAppModel);
-            MainHomeFrame.Content = AppDetailPage;
+            SetFrameContent(AppDetailPage);
         }
 
-        private void MainHomePage_AppClicked(object sender, UserControls.AppClickedEventArges e)
+        
+
+        private void TabControl_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-            AppDetailPage = new DetailPage(e.SelectAppModel);
-            MainHomeFrame.Content = AppDetailPage;
+            if (this.CurrentIndex == (sender as TabControl).SelectedIndex)
+                return;
+            
+            this.CurrentIndex = (sender as TabControl).SelectedIndex;
+            if( this.CurrentIndex == 0 )
+            {
+                MainHomeFrame.NavigationService.RemoveBackEntry();
+                MainHomeFrame.Content = MainHomePage;
+            }
+            else 
+            {
+                var selTab = (sender as TabControl).SelectedItem as TabItem;
+                if (this.CurrentIndex == 1)
+                {
+                    AppsPage = new AppsPage(selTab.Header.ToString(), DataBase.AppsMainType.None, DataBase.DisplayType.All);
+                    AppsPage.AppClicked += AppsPage_AppClicked;
+                }
+                else
+                {
+                    AppsPage = new AppsPage(selTab.Header.ToString(), DataBase.AppsMainType.GameApp, DataBase.DisplayType.All);
+                    AppsPage.AppClicked += AppsPage_AppClicked;
+                }
+
+               
+                SetFrameContent(AppsPage, true );
+
+
+            }
+            
+        }
+
+        private void SetFrameContent( object page, bool isRemveBack = false )
+        {
+            if( isRemveBack )
+            {
+                MainHomeFrame.NavigationService.RemoveBackEntry();
+                MainAppFrame.NavigationService.RemoveBackEntry();
+                MainGameFrame.NavigationService.RemoveBackEntry();
+            }
+           
+            if (this.CurrentIndex == 0)
+            {               
+                MainHomeFrame.Content = page;
+            }
+               
+            else if (this.CurrentIndex == 1)
+            {               
+                MainAppFrame.Content = page;
+            }                
+            else
+            {              
+                MainGameFrame.Content = page;
+            }
+               
         }
     }
 }

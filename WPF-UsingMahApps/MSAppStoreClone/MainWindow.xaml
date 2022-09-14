@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="800">
     <Grid>
-        <TabControl Margin="5">
+        <TabControl Margin="5" SelectionChanged="TabControl_SelectionChanged" >
             <TabItem Header="Home" x:Name="HomeTab">
                 <Frame x:Name="MainHomeFrame">
                    
