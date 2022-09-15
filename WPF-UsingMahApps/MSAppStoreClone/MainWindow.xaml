@@ -35,10 +35,11 @@
             <Border Margin="20,0,0,0" BorderBrush="DimGray"
                     VerticalAlignment="Center"
                     BorderThickness="1" Width="300" Height="25">
-                <TextBlock Margin="5"
-                       VerticalAlignment="Center" TextAlignment="Left">test</TextBlock>
+                <TextBox x:Name="SearchText" BorderThickness="0"
+                       VerticalAlignment="Center" TextAlignment="Left">test</TextBox>
             </Border>
-            <Button Width="100" > Search</Button>
+            <Button Width="100" 
+                    x:Name="btnSearch" Click="btnSearch_Click"> Search</Button>
            
         </StackPanel>
        

@@ -1,4 +1,5 @@
-﻿using MSAppStoreClone.Pages;
+﻿using MSAppStoreClone.DataBase;
+using MSAppStoreClone.Pages;
 using System;
 using System.Diagnostics;
 using System.Windows;
@@ -17,42 +18,9 @@ namespace MSAppStoreClone
         DetailPage AppDetailPage { get; set; }
         AppsPage AppsPage { get; set; }
 
+        SearchResultPage SearchAppsPage { get; set; }
+
         public int CurrentIndex { get; set; }
-
-
-
-        public Visibility HomePrevVisible
-        {
-            get { return (Visibility)GetValue(HomePrevVisibleProperty); }
-            set { SetValue(HomePrevVisibleProperty, value); }
-        }
-
-        // Using a DependencyProperty as the backing store for HomePrevVisible.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty HomePrevVisibleProperty =
-            DependencyProperty.Register("HomePrevVisible", typeof(Visibility), typeof(MainWindow), new PropertyMetadata(default(Visibility)));
-
-
-
-        public Visibility AppsPrevVisible
-        {
-            get { return (Visibility)GetValue(AppsPrevVisibleProperty); }
-            set { SetValue(AppsPrevVisibleProperty, value); }
-        }
-
-        // Using a DependencyProperty as the backing store for AppsPrevVisible.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty AppsPrevVisibleProperty =
-            DependencyProperty.Register("AppsPrevVisible", typeof(Visibility), typeof(MainWindow), new PropertyMetadata(default(Visibility)));
-
-        public Visibility GamesPrevVisible
-        {
-            get { return (Visibility)GetValue(GamesPrevVisibleProperty); }
-            set { SetValue(GamesPrevVisibleProperty, value); }
-        }
-
-        // Using a DependencyProperty as the backing store for GamessPrevVisible.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty GamesPrevVisibleProperty =
-            DependencyProperty.Register("GamesPrevVisible", typeof(Visibility), typeof(MainWindow), new PropertyMetadata(default(Visibility)));
-
 
 
 
@@ -77,10 +45,7 @@ namespace MSAppStoreClone
             InitializeComponent();
             this.DataContext = this;
             this.CurrentIndex = 0;
-            this.HomePrevVisible = Visibility.Hidden;
-            this.AppsPrevVisible = Visibility.Hidden;
-            this.GamesPrevVisible = Visibility.Hidden;
-
+          
 
             MainHomePage = new HomePage();
             MainHomePage.AppClicked += AppsPage_AppClicked;
@@ -235,6 +200,16 @@ namespace MSAppStoreClone
 
 
             }
+        }
+
+        private void btnSearch_Click(object sender, RoutedEventArgs e)
+        {
+
+            if (string.IsNullOrEmpty(SearchText.Text))
+                return;
+
+            SearchAppsPage = new SearchResultPage(SearchText.Text);
+            SetFrameContent(SearchAppsPage);
         }
     }
 }
