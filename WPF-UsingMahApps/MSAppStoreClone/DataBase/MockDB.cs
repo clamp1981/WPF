@@ -67,17 +67,17 @@ namespace MSAppStoreClone.DataBase
                 $"- 수천 편의 영화와 TV 프로그램을 골라 시청할 수 있으며, 정기적으로 신규 동영상이 등록됩니다.\r\n\r\n" +
                 $"설치를 클릭하시면 Netflix 앱 설치 및 업데이트와 업그레이드에 동의하시는 것이 됩니다.";
 
-            int appNumber = Convert.ToInt32(System.IO.Path.GetFileNameWithoutExtension(imagPath).Split('-')[0]);
-            string url = Path.GetDirectoryName(imagPath) + "\\ScreenShot";
+            int appNumber = Convert.ToInt32(System.IO.Path.GetFileNameWithoutExtension(imagPath).Split('-')[0]);            
+            string url = Environment.CurrentDirectory + @"..\..\..\Images\ScreenShot";
             if ( appNumber % 2 == 0 )
             {
-                url += "\\02";
+                url += @"\02";
             }
             else
             {
-                url += "\\01";
+                url += @"\01";
             }
-            ScreenShotImagePathList = Directory.GetFiles(url, " *.png", SearchOption.TopDirectoryOnly).ToList();
+            ScreenShotImagePathList = Directory.GetFiles(url, "*.png").ToList();
 
         }
     }

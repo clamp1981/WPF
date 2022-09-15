@@ -8,7 +8,7 @@
              Height="300"
              Width="150" MouseLeftButtonUp="UserControl_MouseLeftButtonUp">
     
-    <Border x:Name="MainBorder" Margin="5" CornerRadius="2" Background="White" BorderBrush="LightGray" BorderThickness="1" Cursor="Arrow" >
+    <Border x:Name="MainBorder" Margin="5" CornerRadius="2" Background="White" BorderBrush="LightGray" BorderThickness="1" >
         <Border.Effect>
             <DropShadowEffect
                               Direction="315"
@@ -82,7 +82,6 @@
                        Foreground="DarkSlateGray"
                        Text="Free"
                        />
-                
             </Grid>
         </Grid>
     </Border>

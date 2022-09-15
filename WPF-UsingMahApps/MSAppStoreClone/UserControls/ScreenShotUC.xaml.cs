@@ -20,21 +20,22 @@ namespace MSAppStoreClone.UserControls
     /// </summary>
     public partial class ScreenShotUC : UserControl
     {
-        List<Image> ScreenShotImageList;
+        public List<Image> ScreenShotImageList { get; set; }
         public ScreenShotUC( List<string> imagPaths )
         {
             InitializeComponent();
-            ScreenShotImageList = new List<Image>();
-            ScreenShotList.ItemsSource = ScreenShotImageList;
+            this.ScreenShotImageList = new List<Image>();
+            this.ScreenShotList.ItemsSource = ScreenShotImageList;
 
             foreach (var path in imagPaths)
             {
                 Image image = new Image();
                 image.Margin = new Thickness(5);
-                image.Source = new BitmapImage( new Uri(path) );
                 image.Height = 200;
                 image.Width = 300;
-                ScreenShotImageList.Add(image);
+                image.Source = new BitmapImage( new Uri(path) );
+
+                this.ScreenShotImageList.Add(image);
             }
         }
 

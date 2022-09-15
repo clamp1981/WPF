@@ -7,26 +7,63 @@
         xmlns:page="clr-namespace:MSAppStoreClone.Pages"
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="800">
+    <Window.Resources>
+        <Style TargetType="Frame">
+            <Setter Property="NavigationUIVisibility" Value="Hidden"/>           
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Width" Value="25"/>
+            <Setter Property="Height" Value="25"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="Margin" Value="2,2,0,0"/>
+            <Setter Property="Content" Value="◁"/>
+
+        </Style>
+    </Window.Resources>
     <Grid>
-        <TabControl Margin="5" SelectionChanged="TabControl_SelectionChanged" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <Button VerticalAlignment="Center"
+                    x:Name="btnPrevious"                             
+                            Visibility="{Binding PrevVisiblity}"
+                            Click="btnPrevious_Click"/>
+            <Label Margin="5,0,0,0" VerticalAlignment="Center" >Simple MS Store </Label>
+            <Border Margin="20,0,0,0" BorderBrush="DimGray"
+                    VerticalAlignment="Center"
+                    BorderThickness="1" Width="300" Height="25">
+                <TextBlock Margin="5"
+                       VerticalAlignment="Center" TextAlignment="Left">test</TextBlock>
+            </Border>
+            <Button Width="100" > Search</Button>
+           
+        </StackPanel>
+       
+        <TabControl Grid.Row="1" Margin="5" 
+                    SelectionChanged="TabControl_SelectionChanged" >
             <TabItem Header="Home" x:Name="HomeTab">
-                <Frame x:Name="MainHomeFrame">
+                <Grid>
+                    <Frame x:Name="MainHomeFrame" ContentRendered="Frame_ContentRendered"/>
                    
-                </Frame>
+                </Grid>
+                
             </TabItem>
             <TabItem Header="Apps" x:Name="AppsTab">
-                <Frame x:Name="MainAppFrame">
-
-                </Frame>
+                <Grid>
+                    <Frame x:Name="MainAppFrame" ContentRendered="Frame_ContentRendered" />
+                   
+                </Grid>
+                
             </TabItem>
             <TabItem Header="Game" x:Name="GameTab">
-                <Frame x:Name="MainGameFrame">
-
-                </Frame>
+                <Grid>
+                    <Frame x:Name="MainGameFrame" ContentRendered="Frame_ContentRendered"/>                                  
+                </Grid>
+                
             </TabItem>
         </TabControl>
-        
-        
-
     </Grid>
 </Window>
