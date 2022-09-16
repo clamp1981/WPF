@@ -62,6 +62,9 @@
     <Compile Include="Pages\AppsPage.xaml.cs">
       <DependentUpon>AppsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\CollectionPage.xaml.cs">
+      <DependentUpon>CollectionPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\DetailPage.xaml.cs">
       <DependentUpon>DetailPage.xaml</DependentUpon>
     </Compile>
@@ -87,6 +90,9 @@
     <Compile Include="UserControls\DetailTopAppUC.xaml.cs">
       <DependentUpon>DetailTopAppUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\LikedUC.xaml.cs">
+      <DependentUpon>LikedUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\MenuUC.xaml.cs">
       <DependentUpon>MenuUC.xaml</DependentUpon>
     </Compile>
@@ -109,6 +115,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Pages\AppsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\CollectionPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -141,6 +151,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="UserControls\DetailTopAppUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\LikedUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

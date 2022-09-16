@@ -50,19 +50,20 @@
         <Button Grid.Row="4" Grid.Column="0"
                 Margin="1"
                 x:Name="TopAppsButton"
-                FontSize="15">Top Apps</Button>
+                FontSize="15" Click="TopAppsButton_Click"
+                >Top Apps</Button>
         <Button Grid.Row="4" Grid.Column="1"
                 x:Name="FeaturedButton"
                 Margin="1"
-                FontSize="15">Featured</Button>
+                FontSize="15" Click="FeaturedButton_Click">Featured</Button>
         <Button Grid.Row="5" Grid.Column="0"
                 Margin="1"
                 x:Name="TopGamesButton"
-                FontSize="15">Top Games</Button>
+                FontSize="15" Click="TopGamesButton_Click">Top Games</Button>
         <Button Grid.Row="5" Grid.Column="1"
                 Margin="1"
                 x:Name="CollectionsButton"
-                FontSize="15">Collections</Button>
+                FontSize="15" Click="CollectionsButton_Click">Collections</Button>
             
     </Grid>
 </UserControl>

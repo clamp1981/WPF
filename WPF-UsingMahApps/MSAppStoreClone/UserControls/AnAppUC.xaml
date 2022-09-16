@@ -43,8 +43,9 @@
                 <RowDefinition Height="5*"/>
                 <RowDefinition Height="15*"/>
                 <RowDefinition Height="5*"/>
-                <RowDefinition Height="5*"/>
-                <RowDefinition Height="15*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="14*"/>
                 <RowDefinition Height="10*"/>
                 <RowDefinition Height="5*"/>
             </Grid.RowDefinitions>
@@ -62,7 +63,7 @@
                        />
             </Grid>
 
-            <Grid Grid.Column="1" Grid.Row="6" Grid.ColumnSpan="3"
+            <Grid Grid.Column="1" Grid.Row="6" Grid.ColumnSpan="3" Grid.RowSpan="2"
                VerticalAlignment="Bottom">
                 <TextBlock x:Name="ProductType"
                        Foreground="DarkSlateGray"
@@ -72,8 +73,25 @@
                        Text="Entertainment"
                        />
             </Grid>
+            <Grid Grid.Column="1" Grid.Row="8" Grid.ColumnSpan="3" Margin="0,5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="15"/>
+                    <ColumnDefinition Width="15"/>
+                    <ColumnDefinition Width="15"/>
+                    <ColumnDefinition Width="15"/>
+                    <ColumnDefinition Width="15"/>
+                    <ColumnDefinition Width="5"/>
+                    <ColumnDefinition Width="*"/>                    
+                </Grid.ColumnDefinitions>
+                <local:LikedUC Grid.Column="0"  Visibility="{Binding Liked01Visibility}"  HorizontalAlignment="Center"></local:LikedUC>
+                <local:LikedUC Grid.Column="1" Visibility="{Binding Liked02Visibility}" HorizontalAlignment="Center"></local:LikedUC>
+                <local:LikedUC Grid.Column="2" Visibility="{Binding Liked03Visibility}" HorizontalAlignment="Center"></local:LikedUC>
+                <local:LikedUC Grid.Column="3" Visibility="{Binding Liked04Visibility}" HorizontalAlignment="Center"></local:LikedUC>
+                <local:LikedUC Grid.Column="4" Visibility="{Binding Liked05Visibility}" HorizontalAlignment="Center"></local:LikedUC>
+                <TextBlock Grid.Column="6" x:Name="Liked" FontSize="10" Text="1"/>
+            </Grid>
 
-            <Grid Grid.Column="1" Grid.Row="9" Grid.ColumnSpan="3"                 
+            <Grid Grid.Column="1" Grid.Row="10" Grid.ColumnSpan="3"                 
               VerticalAlignment="Center">
                 <TextBlock x:Name="ProductPrice"
                        FontSize="16"

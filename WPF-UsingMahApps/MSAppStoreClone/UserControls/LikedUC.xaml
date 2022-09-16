@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="MSAppStoreClone.UserControls.LikedUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MSAppStoreClone.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="25" d:DesignWidth="25">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Row="0" Grid.Column="0">
+            <Path Grid.Column="0" Stroke="#FF383838" Fill="#FF383838" StrokeThickness="1" StrokeStartLineCap="Flat" StrokeEndLineCap="Flat" StrokeLineJoin="Bevel" 
+              Data="M 0,0 l 10,0 l 5,-10 l 5,10 l 10,0 l -7,10 l 2,10 l -10,-5 l -10,5 l 2,-10 Z" 
+              Stretch="Fill" />
+        </Grid>
+        
+    </Grid>
+</UserControl>

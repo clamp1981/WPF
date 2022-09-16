@@ -35,7 +35,7 @@ namespace MSAppStoreClone.Pages
         }
 
 
-        TopAppsUC TopApps = new TopAppsUC();
+        TopAppsUC TopApps = null;
         AppsUC BestEnterApps = null;
         AppsUC UtilityApps = null;
         AppsUC GameApps = null;
@@ -43,6 +43,8 @@ namespace MSAppStoreClone.Pages
         public HomePage()
         {
             InitializeComponent();
+            TopApps = new TopAppsUC();
+            TopApps.TopAppsButtonClicked += TopApps_TopAppsButtonClicked; 
             MainStackPanel.Children.Add(TopApps);
             BestEnterApps = new AppsUC("Best Entertainment apps", DataBase.AppsMainType.EntertainmentApp , DataBase.DisplayType.Best );
             UtilityApps = new AppsUC("Utility apps", DataBase.AppsMainType.UtilityApp, DataBase.DisplayType.All, true);
@@ -64,6 +66,24 @@ namespace MSAppStoreClone.Pages
             MainStackPanel.Children.Add(GameApps);
             MainStackPanel.Children.Add(FreeApps);
 
+        }
+
+        private void TopApps_TopAppsButtonClicked(object sender, TopAppsButtonClickedEventArgs e)
+        {
+            ViewMoreClickedEventArges eventArgs = null;
+            if (e.ButtonType == TopAppsButtonType.TopApps)
+                eventArgs = new ViewMoreClickedEventArges("TopApps", DataBase.AppsMainType.None, DataBase.DisplayType.Best);
+            else if( e.ButtonType == TopAppsButtonType.TopGames )
+                eventArgs = new ViewMoreClickedEventArges("TopGames", DataBase.AppsMainType.GameApp, DataBase.DisplayType.Best);
+            else if(e.ButtonType == TopAppsButtonType.Featured )
+                eventArgs = new ViewMoreClickedEventArges("Featured", DataBase.AppsMainType.None, DataBase.DisplayType.Recommend);
+
+            OnViewMoreClicked(eventArgs);
+        }
+
+        private void TopApps_TopAppsClicked(object sender, EventArgs e)
+        {
+            
         }
 
         private void Apps_ViewMoreClicked(object sender, ViewMoreClickedEventArges e)
