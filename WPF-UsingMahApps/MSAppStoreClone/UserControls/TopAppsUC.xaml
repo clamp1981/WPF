@@ -56,14 +56,11 @@
                 x:Name="FeaturedButton"
                 Margin="1"
                 FontSize="15" Click="FeaturedButton_Click">Featured</Button>
-        <Button Grid.Row="5" Grid.Column="0"
+        <Button Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"
                 Margin="1"
                 x:Name="TopGamesButton"
                 FontSize="15" Click="TopGamesButton_Click">Top Games</Button>
-        <Button Grid.Row="5" Grid.Column="1"
-                Margin="1"
-                x:Name="CollectionsButton"
-                FontSize="15" Click="CollectionsButton_Click">Collections</Button>
+        
             
     </Grid>
 </UserControl>

@@ -1,9 +1,10 @@
-﻿<UserControl x:Class="MSAppStoreClone.UserControls.AnAppUC"
+﻿<mah:MetroContentControl x:Class="MSAppStoreClone.UserControls.AnAppUC"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MSAppStoreClone.UserControls"
+             xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
              mc:Ignorable="d"
              Height="300"
              Width="150" MouseLeftButtonUp="UserControl_MouseLeftButtonUp">
@@ -56,7 +57,7 @@
             <Grid Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="3">
                 <TextBlock x:Name="ProductName"                           
                        Foreground="DarkSlateGray"
-                       FontSize="16"
+                       FontSize="14"
                        FontWeight="Bold"
                        TextWrapping="Wrap"
                        Text="Test Prodcut for Window"
@@ -104,4 +105,4 @@
         </Grid>
     </Border>
     
-</UserControl>
+</mah:MetroContentControl>

@@ -1,4 +1,5 @@
-﻿using MSAppStoreClone.DataBase;
+﻿using MahApps.Metro.Controls;
+using MSAppStoreClone.DataBase;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +20,7 @@ namespace MSAppStoreClone.UserControls
     /// <summary>
     /// Interaction logic for AnAppWideStyleUC.xaml
     /// </summary>
-    public partial class AnAppWideStyleUC : UserControl
+    public partial class AnAppWideStyleUC : MetroContentControl
     {
         public event EventHandler<AppClickedEventArges> AppClicked;
         protected virtual void OnAppClicked(AppClickedEventArges e)

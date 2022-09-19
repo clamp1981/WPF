@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MSAppStoreClone.DataBase;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,16 +14,21 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MSAppStoreClone.Pages
+namespace MSAppStoreClone.UserControls.HambugerMenuViewrs
 {
     /// <summary>
-    /// CollectionPage.xaml에 대한 상호 작용 논리
+    /// HambugerMenuUC.xaml에 대한 상호 작용 논리
     /// </summary>
-    public partial class CollectionPage : Page
+    public partial class HambugerMenuUC : UserControl
     {
-        public CollectionPage()
+
+        public HambugerMenuUC(AppModel app)
         {
             InitializeComponent();
+
+            this.AppImage.Source = new BitmapImage(new Uri(app.MiniImagPath));
+            this.AppNameTextBlock.Text = app.AppName;
+            this.PurchasedLabel.Content = app.Purchased.ToString("d");
         }
     }
 }

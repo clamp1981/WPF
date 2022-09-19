@@ -1,4 +1,5 @@
-﻿using MSAppStoreClone.DataBase;
+﻿using MahApps.Metro.Controls;
+using MSAppStoreClone.DataBase;
 using MSAppStoreClone.Pages;
 using System;
 using System.Diagnostics;
@@ -11,7 +12,7 @@ namespace MSAppStoreClone
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : MetroWindow
     {
 
         HomePage MainHomePage { get; set; }
@@ -20,7 +21,11 @@ namespace MSAppStoreClone
 
         SearchResultPage SearchAppsPage { get; set; }
 
+        LibraryPage MyLibraryPage { get; set; }
+
         public int CurrentIndex { get; set; }
+
+
 
 
 
@@ -45,13 +50,16 @@ namespace MSAppStoreClone
             InitializeComponent();
             this.DataContext = this;
             this.CurrentIndex = 0;
-          
+
+            //test
+            //MyLibraryPage = new LibraryPage();
+            //SetFrameContent(MyLibraryPage);
 
             MainHomePage = new HomePage();
             MainHomePage.AppClicked += AppsPage_AppClicked;
             MainHomePage.ViewMoreClicked += MainHomePage_ViewMoreClicked;
             SetFrameContent(MainHomePage);
-           
+
         }
 
         private void MainHomePage_ViewMoreClicked(object sender, UserControls.ViewMoreClickedEventArges e)
@@ -82,7 +90,12 @@ namespace MSAppStoreClone
                 //RemoveBackContent(this.MainHomeFrame);
                 SetFrameContent(MainHomePage);
             }
-            else 
+            else if(this.CurrentIndex == 3)
+            {
+                MyLibraryPage = new LibraryPage();
+                SetFrameContent(MyLibraryPage);
+            }
+            else
             {
                 var selTab = (sender as TabControl).SelectedItem as TabItem;
                 if (this.CurrentIndex == 1)
@@ -97,10 +110,11 @@ namespace MSAppStoreClone
                     AppsPage = new AppsPage(selTab.Header.ToString(), DataBase.AppsMainType.GameApp, DataBase.DisplayType.All);
                     AppsPage.AppClicked += AppsPage_AppClicked;
                 }
-               
-                SetFrameContent(AppsPage );
+
+
+                SetFrameContent(AppsPage);
             }
-            
+
         }
 
         private void SetFrameContent( object page )
@@ -113,7 +127,11 @@ namespace MSAppStoreClone
             else if (this.CurrentIndex == 1)
             {                
                 this.MainAppFrame.Content = page;                      
-            }                
+            }
+            else if (this.CurrentIndex == 3)
+            {
+                this.MainLibraryFrame.Content = page;
+            }
             else
             {               
                 this.MainGameFrame.Content = page;                       

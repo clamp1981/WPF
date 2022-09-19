@@ -1,4 +1,5 @@
-﻿ using MSAppStoreClone.DataBase;
+﻿using MahApps.Metro.Controls;
+using MSAppStoreClone.DataBase;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -175,7 +176,7 @@ namespace MSAppStoreClone.UserControls
 
        
 
-        private void AddApps(UserControl uc, AppModel appModel)
+        private void AddApps(MetroContentControl uc, AppModel appModel)
         {
             dynamic app = null;
             if(this.IsAppUCWide == false)

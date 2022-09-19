@@ -21,8 +21,8 @@ namespace MSAppStoreClone.UserControls
     {
         TopApps,
         TopGames,
-        Featured,
-        Collection
+        Featured
+       
     }
 
     public class TopAppsButtonClickedEventArgs : EventArgs
@@ -64,8 +64,6 @@ namespace MSAppStoreClone.UserControls
 
             }
 
-
-
             this.MainImage.Source = new BitmapImage(new Uri(files[indexs[0]]));
             this.SubImage01.Source = new BitmapImage(new Uri(files[indexs[1]]));
             this.SubImage02.Source = new BitmapImage(new Uri(files[indexs[2]]));
@@ -88,9 +86,5 @@ namespace MSAppStoreClone.UserControls
             OnTopAppsButtonClicked(new TopAppsButtonClickedEventArgs(TopAppsButtonType.TopGames));
         }
 
-        private void CollectionsButton_Click(object sender, RoutedEventArgs e)
-        {
-            //OnTopAppsButtonClicked(new TopAppsButtonClickedEventArgs(TopAppsButtonType.Collection));
-        }
     }
 }
