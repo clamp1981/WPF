@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MiscUtil;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -24,10 +25,22 @@ namespace MSAppStoreClone.DataBase
         Recommend
     }
 
-   
+
+    public enum MenuComboBoxType
+    {
+        AppType,
+        DisplaySort
+    }
+    public enum DisplaySortType
+    {
+        Purchased,
+        Name
+    }
+
     public class AppModel
     {
         public string ImagPath { get; private set; }
+        public string MiniImagPath { get; private set; }
         public AppsMainType AppMainType { get; private set; }
         public int DiscountPercent { get; private set; }
         public double Price { get; private set; }
@@ -39,11 +52,14 @@ namespace MSAppStoreClone.DataBase
         public string AppSummary { get; private set; }
         public string AppDetail { get; private set; }
 
+        public DateTime Purchased { get; private set; }
+
         public List<string> ScreenShotImagePathList { get; private set; }
 
-        public AppModel( string imagPath, AppsMainType type, double price )
+        public AppModel( string imagPath, string miniImagePath, AppsMainType type, double price )
         {
             this.ImagPath = imagPath;
+            this.MiniImagPath = miniImagePath;
             this.AppMainType = type;
             string appName = System.IO.Path.GetFileNameWithoutExtension(imagPath).Split('-')[1].Split(' ')[0];
             this.AppName = appName.Substring(0, 1).ToUpper() + appName.Substring(1);
@@ -56,11 +72,8 @@ namespace MSAppStoreClone.DataBase
             else
                 this.AppTypeName = "Utility";
 
-            Random rd = new Random();
-            this.SaledCount = rd.Next(100000);
-
-            Random rdLiked = new Random();
-            
+          
+            this.SaledCount = StaticRandom.Next(100000);
 
             this.AppSummary = $"{this.AppName}는 음악, 동영상, TV 프로그램 등을 즐길 수 있는 가장 간편한 방법이며 쉽게 구성할 수 있습니다.";
 
@@ -77,14 +90,15 @@ namespace MSAppStoreClone.DataBase
             if ( appNumber % 2 == 0 )
             {
                 url += @"\02";
-                this.Liked = rdLiked.Next(1, 3);
+                this.Liked = StaticRandom.Next(1, 3);
             }
             else
             {
                 url += @"\01";
-                this.Liked = rdLiked.Next(3, 6);
+                this.Liked = StaticRandom.Next(3, 6);
             }
             ScreenShotImagePathList = Directory.GetFiles(url, "*.png").ToList();
+            Purchased = new DateTime(2022, 1, StaticRandom.Next(1, DateTime.Now.Day + 1));
 
         }
     }
@@ -94,6 +108,7 @@ namespace MSAppStoreClone.DataBase
     {
 
         static List<string> Files = Directory.GetFiles(Environment.CurrentDirectory + @"..\..\..\Images", "*.png", SearchOption.TopDirectoryOnly).ToList();
+        static List<string> MiniFiles = Directory.GetFiles(Environment.CurrentDirectory + @"..\..\..\Images\MiniIcons", "*.png", SearchOption.TopDirectoryOnly).ToList();
         static List<AppModel> Apps = SetAppsData();
 
         public static List<AppModel> GetAppModels(AppsMainType type, DisplayType displayType = DisplayType.All)
@@ -103,12 +118,27 @@ namespace MSAppStoreClone.DataBase
                 apps = Apps.Where(x => x.AppMainType == type).ToList();
 
             if (displayType == DisplayType.Best)
-                apps = Apps.OrderByDescending(x => x.SaledCount).ToList();
+                apps = apps.OrderByDescending(x => x.SaledCount).ToList();
             else if (displayType == DisplayType.Free)
-                apps = Apps.Where(x => (x.Price == 0.0)).ToList();
+                apps = apps.Where(x => (x.Price == 0.0)).ToList();
             else if (displayType == DisplayType.Recommend)
-                apps = Apps.Where(x => x.Liked >= 4).ToList();
+                apps = apps.Where(x => x.Liked >= 4).ToList();
 
+
+            return apps;
+        }
+
+
+        public static List<AppModel> GetAppModels( AppsMainType type, DisplaySortType sortType )
+        {
+            List<AppModel> apps = Apps;
+            if (type != AppsMainType.None)
+                apps = Apps.Where(x => x.AppMainType == type).ToList();
+
+            if (sortType == DisplaySortType.Name)
+                apps = apps.OrderByDescending(x => x.AppName).ToList();
+            else 
+                apps = apps.OrderByDescending(x => x.Purchased).ToList();
 
             return apps;
         }
@@ -140,7 +170,7 @@ namespace MSAppStoreClone.DataBase
                 else
                     price = (i + 1) * 150;
 
-                apps.Add(new AppModel(Files[i], mainType, price));
+                apps.Add(new AppModel(Files[i], MiniFiles[i], mainType, price));
             }
 
             return apps;
