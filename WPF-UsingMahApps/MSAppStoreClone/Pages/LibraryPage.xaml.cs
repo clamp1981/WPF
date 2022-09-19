@@ -23,28 +23,17 @@ namespace MSAppStoreClone.Pages
     public partial class LibraryPage : Page
     {
 
-        HambugerMenuHeader _header = new HambugerMenuHeader();
-        HambugerMenuUCList _appList = null;
-        
+
+        MyLibraryUC myLibrary = new MyLibraryUC();
         public LibraryPage()
         {
             InitializeComponent();
-            _header.SelectionChangedTypes += header_SelectionChangedTypes;
-            UserControls.HambugerMenuViewrs.ComboBoxItem apptype = (UserControls.HambugerMenuViewrs.ComboBoxItem)(_header.GetMenuSelectedValue(MenuComboBoxType.AppType)) ;
-            UserControls.HambugerMenuViewrs.ComboBoxItem sorttype = (UserControls.HambugerMenuViewrs.ComboBoxItem)_header.GetMenuSelectedValue(MenuComboBoxType.DisplaySort);
-            _appList = new HambugerMenuUCList((AppsMainType)apptype.value, (DisplaySortType)sorttype.value);
-            this.HeaderGrid.Children.Add(_header);
 
-            this.MainStackPanel.Children.Add(_appList);
-
+            this.MainStackPanel.Children.Add(myLibrary);
         }
 
-        private void header_SelectionChangedTypes(object sender, SelectChangedComboBoxEventArgs e)
-        {
-            UserControls.HambugerMenuViewrs.ComboBoxItem apptype = (UserControls.HambugerMenuViewrs.ComboBoxItem)(_header.GetMenuSelectedValue(MenuComboBoxType.AppType));
-            UserControls.HambugerMenuViewrs.ComboBoxItem sorttype = (UserControls.HambugerMenuViewrs.ComboBoxItem)_header.GetMenuSelectedValue(MenuComboBoxType.DisplaySort);
-            _appList.SetApps((AppsMainType)apptype.value, (DisplaySortType)sorttype.value);
-           
-        }
+       
+
+     
     }
 }
